@@ -7,6 +7,7 @@
 //const int EMPTY_SIZE = 0; 
 
 
+
 template<class T> 
 class UnionFind {
     UfNode<T>**     uf_group_arr;
