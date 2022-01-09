@@ -335,35 +335,6 @@ StatusType PlayersManager::AverageHighestPlayerLevelByGroup(int GroupID, int m, 
 }
 
 
-/*
-StatusType PlayersManager::AverageHighestPlayerLevelByGroup(int GroupID, int m, double * avgLevel){
-    if(GroupID < 0|| GroupID > this->groups_size || m <= 0) return INVALID_INPUT;
-    if( m > this->total_players ){ return FAILURE; }
-    if(GroupID == 0){   // all players
-        int tree_numOfPlayers = this->all_players_tree->getRootSize();
-        if( tree_numOfPlayers < m ) { // the case with zeros
-            double avg1 = getBestPlayersAverageLevel(this->all_players_tree->getRootNode(), m);
-            *avgLevel = (tree_numOfPlayers*avg1)/(m);
-        } else {    
-            *avgLevel = getBestPlayersAverageLevel(this->all_players_tree->getRootNode(), m);
-        }
-    } else {    // actual groupID
-
-        int group_size = this->groups_uf->find(GroupID)->getGroupPlayersTree()->getRootSize();
-        if(group_size > m ) { return FAILURE; }
-        if(group_size == m ) { 
-            *avgLevel = getBestPlayersAverageLevel(this->groups_uf->find(GroupID)->getGroupPlayersTree()->getRootNode(), m);
-        } 
-        if(group_size < m) {    // zero case.
-            double avg1 = getBestPlayersAverageLevel(this->groups_uf->find(GroupID)->getGroupPlayersTree()->getRootNode(), m);
-            *avgLevel = (group_size*avg1)/(m);
-        }
-    }
-    return SUCCESS;
-}
-*/
-
-
 void PlayersManager::Quit(){
     delete this;
 }

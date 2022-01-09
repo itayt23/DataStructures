@@ -1,0 +1,37 @@
+[
+{
+  "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
+  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\DS2.dir\\Player.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\Player.cpp\"",
+  "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Player.cpp"
+},
+{
+  "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
+  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\DS2.dir\\ChainHashTable.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\ChainHashTable.cpp\"",
+  "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/ChainHashTable.cpp"
+},
+{
+  "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
+  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\DS2.dir\\PlayerNode.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\PlayerNode.cpp\"",
+  "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayerNode.cpp"
+},
+{
+  "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
+  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\DS2.dir\\library2.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\library2.cpp\"",
+  "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/library2.cpp"
+},
+{
+  "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
+  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\DS2.dir\\PlayersManager.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\PlayersManager.cpp\"",
+  "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayersManager.cpp"
+},
+{
+  "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
+  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\DS2.dir\\Group.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\Group.cpp\"",
+  "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Group.cpp"
+},
+{
+  "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
+  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\DS2.dir\\main2.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\main2.cpp\"",
+  "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/main2.cpp"
+}
+]

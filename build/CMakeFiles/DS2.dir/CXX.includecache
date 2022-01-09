@@ -1,0 +1,116 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/ChainHashTable.cpp
+ChainHashTable.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/ChainHashTable.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/ChainHashTable.h
+PlayerNode.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayerNode.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Group.cpp
+Group.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Group.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Group.h
+Player.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Player.h
+RankNode.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/RankNode.h
+RankTree.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/RankTree.h
+iostream
+-
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Player.cpp
+Player.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Player.h
+iostream
+-
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Player.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayerNode.cpp
+PlayerNode.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayerNode.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayerNode.h
+Player.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Player.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayersManager.cpp
+PlayersManager.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayersManager.h
+exceptions.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/exceptions.h
+cmath
+-
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayersManager.h
+ChainHashTable.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/ChainHashTable.h
+UnionFind.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/UnionFind.h
+RankTree.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/RankTree.h
+Group.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Group.h
+library2.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/library2.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/RankNode.h
+assert.h
+-
+iostream
+-
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/RankTree.h
+cmath
+-
+RankNode.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/RankNode.h
+exceptions.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/exceptions.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/UfNode.h
+Group.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Group.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/UnionFind.h
+exceptions.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/exceptions.h
+UfNode.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/UfNode.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/exceptions.h
+exception
+-
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/library2.cpp
+library2.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/library2.h
+PlayersManager.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayersManager.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/library2.h
+
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/main2.cpp
+assert.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+library2.h
+C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/library2.h
+iostream
+-
+
