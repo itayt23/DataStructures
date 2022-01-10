@@ -433,6 +433,7 @@ void RankNode<T>::updateNodeAtRemove(int score) {
 	this->players_amount--;
 	this->players_amount_sub_tree--;
 	this->level_sum = *this->getKey() * this->players_amount;
+	this->updateLevelSumSubTree();
 }
 
 template<class T>
