@@ -434,7 +434,7 @@ static void mergeArrays(RankNode<int>** group1_array, RankNode<int>** group2_arr
                 merge_array[j] =  group1_array[i_a]->copyNode();
                 merge_array[j]->setPlayersAmount(merge_array[j]->getPlayersAmount() + group2_array[i_b]->getPlayersAmount());
                 merge_array[j]->setNodeLevelSum((merge_array[j]->getPlayersAmount()) * *(merge_array[j]->getKey()));
-                for(int i=0; i<group2_array[i_b]->getScale(); i++){
+                for(int i=1; i<=group2_array[i_b]->getScale(); i++){
                     merge_array[j]->getScoreArr()[i] = group1_array[i_a]->getScoreArr()[i] + group2_array[i_b]->getScoreArr()[i];
                 }
                 j++;
@@ -528,8 +528,8 @@ static void arrayToTree(RankNode<int>* node, RankNode<int>** merged_array, int* 
     node->setPlayersAmount(merged_array[*index]->getPlayersAmount());
     node->setScoreArr(merged_array[*index]->copyScoreArr());
     node->setNodeLevelSum(merged_array[*index]->getLevelSum());
-    node->updateLevelSumSubTree();
     node->updateNodeFeatures();
+    node->updateLevelSumSubTree();
     (*index)++;
 
     arrayToTree(node->getRightSon(), merged_array, array_size, index);  // recursive call to the rught subtree

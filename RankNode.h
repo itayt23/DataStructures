@@ -351,26 +351,28 @@ void RankNode<T>::updateLevelSumSubTreesAtInsert() {
 
 template<class T>
 void RankNode<T>::updateLevelSumSubTree() {
-		if(this->isLeaf())
-		{
-			this->levels_sum_sub_tree = this->level_sum;
-		}
-		else if(this->hasRightSon() && !(this->hasLeftSon()))
-		{
-			this->levels_sum_sub_tree = this->right->getLevelsSumSubTree() + this->level_sum;
-		}
-		else if(!(this->hasRightSon()) && this->hasLeftSon())
-		{
-			this->levels_sum_sub_tree = this->left->getLevelsSumSubTree() + this->level_sum;
-		}
-		else if(this->hasRightSon() && this->hasLeftSon())
-		{
-			this->levels_sum_sub_tree = this->left->getLevelsSumSubTree() + this->right->getLevelsSumSubTree() + this->level_sum;
-		}
+	if(this == nullptr) return;
+	if(this->isLeaf())
+	{
+		this->levels_sum_sub_tree = this->level_sum;
+	}
+	else if(this->hasRightSon() && !(this->hasLeftSon()))
+	{
+		this->levels_sum_sub_tree = this->right->getLevelsSumSubTree() + this->level_sum;
+	}
+	else if(!(this->hasRightSon()) && this->hasLeftSon())
+	{
+		this->levels_sum_sub_tree = this->left->getLevelsSumSubTree() + this->level_sum;
+	}
+	else if(this->hasRightSon() && this->hasLeftSon())
+	{
+		this->levels_sum_sub_tree = this->left->getLevelsSumSubTree() + this->right->getLevelsSumSubTree() + this->level_sum;
+	}
 }
 
 template<class T>
 void RankNode<T>::updateNodeFeatures() {
+	if(this == nullptr) return;
 	if(this->isLeaf())
 	{
 		this->setScoreArrSubTree(this->copyScoreArr());
@@ -844,6 +846,8 @@ RankNode<T>* RankNode<T>::removeNode(){
 					temp_this->parent->updateHeight();						
 					}
 					delete this;
+					temp_this->updateNodeFeatures();
+					temp_this->updateLevelSumSubTree();
 					return temp_this;	
 				} else if(this->hasRightSon()){
 					temp_this = this->right;	
@@ -853,7 +857,9 @@ RankNode<T>* RankNode<T>::removeNode(){
 					} else {
 					temp_this->parent->updateHeight();						
 					}
-					delete this;	
+					delete this;
+					temp_this->updateNodeFeatures();
+					temp_this->updateLevelSumSubTree();	
 					return temp_this;	
 				}
 			}
@@ -869,6 +875,8 @@ RankNode<T>* RankNode<T>::removeNode(){
 			temp_this = temp_this->right;	
 			temp_this->parent->updateHeight();
 			delete this;
+			temp_this->updateNodeFeatures();
+			temp_this->updateLevelSumSubTree();
 			return temp_this;
 			}
 			else if(this->hasLeftSon()){
@@ -882,6 +890,8 @@ RankNode<T>* RankNode<T>::removeNode(){
 				temp_this = temp_this->left;
 				temp_this->parent->updateHeight();
 				delete this;
+				temp_this->updateNodeFeatures();
+				temp_this->updateLevelSumSubTree();
 				return temp_this;
 			}
 		}
@@ -928,8 +938,12 @@ RankNode<T>* RankNode<T>::removeNode(){
 			this->parent = min_node_parent;
 		}
 		min_node_parent->updateHeight();
+		min_node_parent->updateNodeFeatures();
+		min_node_parent->updateLevelSumSubTree();
 		this->removeNode();	// now 'this' is removed, maybe as a leaf and maybe as a father to one right son.
-		min_node->updateHeight(); // the parent of the left subtree's root. 
+		min_node->updateHeight();// the parent of the left subtree's root.
+		min_node->updateNodeFeatures();
+		min_node->updateLevelSumSubTree();  
 		return min_node;	// min node is the new subtree root.
 	}
 }
