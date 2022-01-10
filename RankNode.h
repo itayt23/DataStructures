@@ -123,7 +123,7 @@ RankNode<T>::RankNode(T* key, RankNode<T>* parent, int score, int scale) : key(k
 	//this->players_score_arr = (int*)malloc(sizeof(*this->players_score_arr)*scale);
 	this->players_score_arr = new int[scale];
     this->players_score_arr_sub_tree = new int[scale];
-    for(int i =0; i<scale; i++)
+    for(int i =1; i<=scale; i++)
     {
         this->players_score_arr[i] = 0;				// score=0 is not a valid starting score therefore we'll use it as a blank
         this->players_score_arr_sub_tree[i] = 0;	// score=0 is not a valid starting score therefore we'll use it as a blank
@@ -155,7 +155,7 @@ int* players_score_arr, int* players_score_arr_sub_tree, int scale, int level_su
 	this->scale = scale;
 	this->players_score_arr = new int[this->getScale()];
 	this->players_score_arr_sub_tree = new int[this->getScale()];
-	for(int i=0;i<scale;i++)
+	for(int i=1;i<=scale;i++)
 	{
 		this->players_score_arr[i] = players_score_arr[i];
 		this->players_score_arr_sub_tree[i] = players_score_arr_sub_tree[i];
@@ -1008,7 +1008,7 @@ RankNode<T>* RankNode<T>::searchMin(T* key_find)
 		}
 		else if( *(node_iterator->getKey()) > *key_find){
 			if(node_iterator->left == nullptr) return node_iterator;
-			if(*(node_iterator->left->getKey()) < *key_find) return node_iterator;
+			//if(*(node_iterator->left->getKey()) < *key_find) return node_iterator;
 			node_iterator = node_iterator->left;
 		} else if( *(node_iterator->getKey()) < *key_find){
 			node_iterator = node_iterator->right;
@@ -1032,7 +1032,7 @@ RankNode<T>* RankNode<T>::searchMax(T* key_find)
 			node_iterator = node_iterator->left;
 		} else if( *(node_iterator->getKey()) < *key_find){
 			if(node_iterator->right == nullptr) return node_iterator;
-			if(*(node_iterator->right->getKey()) > *key_find) return node_iterator;
+			//if(*(node_iterator->right->getKey()) > *key_find) return node_iterator;
 			node_iterator = node_iterator->right;
 		}
 	}
@@ -1227,7 +1227,7 @@ template<class T>
 int* RankNode<T>::copyScoreArr(){
 	int* arr_to_copy = this->getScoreArr();
 	int* new_arr = new int[this->getScale()];
-	for(int i=0;i<scale;i++)
+	for(int i=1;i<=scale;i++)
 	{
 		new_arr[i] = arr_to_copy[i];
 	}
@@ -1238,7 +1238,7 @@ template<class T>
 int* RankNode<T>::copyScoreArrSubTree(){
 	int* arr_to_copy = this->getScoreArrSubTree();
 	int* new_arr = new int[this->getScale()];
-	for(int i=0;i<scale;i++)
+	for(int i=1;i<=scale;i++)
 	{
 		new_arr[i] = arr_to_copy[i];
 	}

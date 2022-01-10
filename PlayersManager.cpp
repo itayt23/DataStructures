@@ -35,7 +35,7 @@ PlayersManager::~PlayersManager(){
 
 /* Primary DS functions ----------------------------------------------------------------------------------------------*/
 StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2){
-    if(GroupID1 <= 0 || GroupID2 <= 0 || GroupID1 > this->groups_size || GroupID2 > this->score_scale) return INVALID_INPUT;
+    if(GroupID1 <= 0 || GroupID2 <= 0 || GroupID1 > this->groups_size || GroupID2 > this->groups_size) return INVALID_INPUT;
     RankTree<int>* group_tree1 = this->groups_uf->find(GroupID1)->getGroupPlayersTree();
     RankTree<int>* group_tree2 = this->groups_uf->find(GroupID2)->getGroupPlayersTree();
     RankNode<int>* group_tree1_level_zero =  group_tree1->getLevelZero();
@@ -290,30 +290,6 @@ StatusType PlayersManager::GetPercentOfPlayersWithScoreInBounds(int GroupID, int
     return SUCCESS;
 
 }
-/*
-StatusType PlayersManager::AverageHighestPlayerLevelByGroup(int GroupID, int m, double * avgLevel){
-    if(GroupID < 0|| GroupID > this->groups_size || m <= 0) return INVALID_INPUT;
-    int players_by_level = 0;
-    int temp_amount = m;
-    if(GroupID == 0)
-    {
-        if(this->all_players_tree->getLevelZero()->getPlayersAmount() + this->all_players_tree->getRootNode()->getPlayersAmountSubTree() < m)
-            return FAILURE;
-        players_by_level = highestPlayersByLevel(this->all_players_tree->getRootNode(), &temp_amount, players_by_level);
-        *(avgLevel) = players_by_level / m;
-        return SUCCESS;
-    }
-    else
-    {
-        RankTree<int>* group_tree = this->groups_uf->find(GroupID)->getGroupPlayersTree();
-        if(group_tree->getLevelZero()->getPlayersAmount() + group_tree->getRootNode()->getPlayersAmountSubTree() < m) return FAILURE;
-        players_by_level = highestPlayersByLevel(group_tree->getRootNode(), &temp_amount, players_by_level);
-        *(avgLevel) = players_by_level / m;
-        return SUCCESS;
-    }
-}
-*/
-
 
 StatusType PlayersManager::AverageHighestPlayerLevelByGroup(int GroupID, int m, double * avgLevel){
     if(GroupID < 0|| GroupID > this->groups_size || m <= 0) return INVALID_INPUT;
@@ -609,11 +585,21 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
     int temp_size = m;
     double sum_total = 0;
     bool found_node = false;
-    // handling right side
+    if(iter_node->getPlayersAmountSubTree() < m)
+    {
+        sum_total = iter_node->getLevelsSumSubTree();
+        return sum_total/m;
+    }
     while(temp_size > 0 && iter_node != nullptr)
     {
         if(!found_node)
         {
+            if(iter_node->getRightSon() == nullptr && temp_size == iter_node->getPlayersAmount())
+            {
+                sum_total += iter_node->getLevelSum();
+                temp_size = 0;
+                return sum_total/m;
+            }
             if(temp_size == iter_node->getPlayersAmountSubTree())
             {
                 sum_total += iter_node->getLevelsSumSubTree();
