@@ -585,6 +585,7 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
     int temp_size = m;
     double sum_total = 0;
     bool found_node = false;
+    iter_node->updateLevelSumSubTree();
     if(iter_node->getPlayersAmountSubTree() <= m)
     {
         sum_total = iter_node->getLevelsSumSubTree();
@@ -641,6 +642,7 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
                 found_node = false;
             }
         }
+        iter_node->updateLevelSumSubTree();
     }
     return sum_total/m;
 }

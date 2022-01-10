@@ -207,11 +207,10 @@ void RankTree<T>::remove(T key, int score){
 		else
 		{
 			this->root->searchAndUpdateAtRemove(temp_key, score);
-			//node_to_remove->updateLevelSumSubTrees();
 		}
 		
 		this->root->updateNodeFeatures();
-		this->root->updateLevelSumSubTree(); 
+		this->root->updateLevelSumSubTree();
 	}
 }
 

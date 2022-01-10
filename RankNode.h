@@ -331,19 +331,19 @@ void RankNode<T>::updateLevelSumSubTreesAtInsert() {
 	{
 		if(iter_node->isLeaf())
 		{
-			iter_node->levels_sum_sub_tree = iter_node->level_sum;
+			iter_node->levels_sum_sub_tree = iter_node->getLevelSum();
 		}
 		else if(iter_node->hasRightSon() && !(iter_node->hasLeftSon()))
 		{
-			iter_node->levels_sum_sub_tree = iter_node->right->getLevelsSumSubTree() + iter_node->level_sum;
+			iter_node->levels_sum_sub_tree = iter_node->right->getLevelsSumSubTree() + iter_node->getLevelSum();
 		}
 		else if(!(iter_node->hasRightSon()) && iter_node->hasLeftSon())
 		{
-			iter_node->levels_sum_sub_tree = iter_node->left->getLevelsSumSubTree() + iter_node->level_sum;
+			iter_node->levels_sum_sub_tree = iter_node->left->getLevelsSumSubTree() + iter_node->getLevelSum();
 		}
 		else if(iter_node->hasRightSon() && iter_node->hasLeftSon())
 		{
-			iter_node->levels_sum_sub_tree = iter_node->left->getLevelsSumSubTree() + iter_node->right->getLevelsSumSubTree() + iter_node->level_sum;
+			iter_node->levels_sum_sub_tree = iter_node->left->getLevelsSumSubTree() + iter_node->right->getLevelsSumSubTree() + iter_node->getLevelSum();
 		}
 		iter_node = iter_node->getParent();
 	}
@@ -417,6 +417,7 @@ void RankNode<T>::updateNodeAtInsert(int score) {
 	this->players_amount++;
 	this->players_amount_sub_tree++;
 	this->level_sum = *(this->getKey()) * this->players_amount;
+	this->updateLevelSumSubTree();
 }
 
 template<class T>
@@ -1000,6 +1001,8 @@ RankNode<T>* RankNode<T>::search(T* key_find)
 		return nullptr;
 	}
 	while(node_iterator != nullptr)	{
+		node_iterator->updateNodeFeatures();
+		node_iterator->updateLevelSumSubTree();
 		if(*(node_iterator->getKey()) == *key_find){
 			return node_iterator;
 		}
