@@ -44,6 +44,7 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2){
     int group2_array_size = group_tree2->getRootSize();
     int merged_array_size = group1_array_size + group2_array_size;
     int merged_array_size_final = 0;
+    if(this->groups_uf->find(GroupID1)->getGroupID() == this->groups_uf->find(GroupID2)->getGroupID()) return SUCCESS;
     if(group_tree1->getRootNode() == nullptr && group_tree1->getLevelZero() == nullptr)
     {
         this->groups_uf->unionGroups(GroupID1, GroupID2);
@@ -78,16 +79,18 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2){
         }
         return SUCCESS;
     } 
-    try{  
+    try{
+        int temp_group1_array_size = group1_array_size;
+        int temp_group2_array_size = group2_array_size;
         RankNode<int>** group1_array = new RankNode<int>*[group1_array_size];
         RankNode<int>** group2_array = new RankNode<int>*[group2_array_size];
         RankNode<int>** merged_array = new RankNode<int>*[merged_array_size];
-        treeToArray(group_tree1->getRootNode(), group1_array, &group1_array_size);
-        treeToArray(group_tree2->getRootNode(), group2_array, &group2_array_size);
+        treeToArray(group_tree1->getRootNode(), group1_array, &temp_group1_array_size);
+        treeToArray(group_tree2->getRootNode(), group2_array, &temp_group2_array_size);
         mergeArrays(group1_array, group2_array, merged_array, group1_array_size, group2_array_size, merged_array_size, this->score_scale);
         // count how many cells are actually used:
         for(int i = 0; i< merged_array_size; i++){
-            if(*(merged_array[i]->getKey()) > 0){
+            if((merged_array[i]->getKey()) != nullptr){
                 merged_array_size_final++;
             }
         }
@@ -126,6 +129,7 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2){
         delete[] group2_array;
         delete[] merged_array;
         delete[] merged_array_final;
+        //delete[] zero;
     } catch (AllocationError &e) {
         return ALLOCATION_ERROR;
     } catch (NodeDosentExist &e) {
@@ -542,8 +546,9 @@ static void arrayToTree(RankNode<int>* node, RankNode<int>** merged_array, int* 
         return;
     }
     arrayToTree(node->getLeftSon(), merged_array, array_size, index);   // recursive call to the left subtree
-    
-    node->setKey(merged_array[*index]->getKey());
+    int* key = new int(*(merged_array[*index]->getKey()));
+    //node->setKey(merged_array[*index]->getKey());
+    node->setKey(key);
     node->setPlayersAmount(merged_array[*index]->getPlayersAmount());
     node->setScoreArr(merged_array[*index]->copyScoreArr());
     node->setNodeLevelSum(merged_array[*index]->getLevelSum());

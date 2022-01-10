@@ -23,6 +23,7 @@ private:
 public:
     ChainHashTable(int table_size_t = DEFAULT_SIZE);
     ~ChainHashTable();
+    PlayerNode** getTable();
 
 /* Auxiliary public functions */
 int getSize() const;

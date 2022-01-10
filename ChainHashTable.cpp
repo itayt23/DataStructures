@@ -22,7 +22,9 @@ ChainHashTable::~ChainHashTable(){
     this->table=nullptr;        // setting the deleted to nullptr is standard practive
 }
 
-
+PlayerNode** ChainHashTable::getTable(){
+    return this->table;
+}
 
 
 
@@ -161,8 +163,8 @@ Player* ChainHashTable::findHT(int key) const{
         return nullptr;     //target does not exist in the table
     } else {
         PlayerNode* iterator = table[HT_index];
-            while(iterator != nullptr){
-                if(iterator->getPlayer()->getPlayerID() == key){ return iterator->getPlayer(); }
+        while(iterator != nullptr){
+            if(iterator->getPlayer()->getPlayerID() == key){ return iterator->getPlayer(); }
             iterator=iterator->getNext();
         }
     }

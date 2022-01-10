@@ -116,7 +116,7 @@ void RankTree<T>::insert(T level, int score){
 			try
 			{
 				this->root = new RankNode<T>(temp_add,nullptr, score, this->scale);
-				this->root_size = this->root_size++;
+				this->root_size++;
             }catch (std::bad_alloc& e) {	// this block is not futile.
 				delete temp_add;
 				throw e; // throw std::bad_alloc
@@ -133,7 +133,7 @@ void RankTree<T>::insert(T level, int score){
 		else //there is no node like this yet
 		{
 			this->root = this->root->insert(temp_add, score, this->getScale());
-			this->root_size = this->root_size++;
+			this->root_size++;
 			RankNode<T>* node_inserted = this->root->search(temp_add);
 			node_inserted->updateLevelSumSubTreesAtInsert();
 			//this->root->searchAndUpdateAtInsert(temp_add, score);
@@ -200,7 +200,7 @@ void RankTree<T>::remove(T key, int score){
 		{
 			this->root->searchAndUpdateAtRemove(temp_key, score);
 			this->root = this->root->remove(temp_key);
-			this->root_size = this->root_size--;
+			this->root_size--;
 		}
 		else
 		{
@@ -263,18 +263,18 @@ void RankTree<T>::inOrderReverse(){
  */
 template<class T>
 void RankTree<T>::clearTree(){
-	if (this->root == nullptr) {
-		return;	
+	if (this->root != nullptr) {
+		this->root->clearAll();
+		delete this->root;
+		this->root =nullptr;
 	}
-	this->root->clearAll();
-	delete this->root;
-	this->root =nullptr;
-	if (this->level_zero == nullptr) {
-		return;	
+	
+	if (this->level_zero != nullptr) {
+		this->level_zero->clearAll();
+		delete this->level_zero;
+		this->level_zero =nullptr;
 	}
-	this->level_zero->clearAll();
-	delete this->level_zero;
-	this->level_zero =nullptr;
+	
 } 
 
 template <class T>

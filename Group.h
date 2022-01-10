@@ -13,7 +13,7 @@ class Group
 {
     int                         group_id;
     int                         group_size;
-    int                         group_uf_size;  // for the union.
+    //int                         group_uf_size;  // for the union.
     RankTree<int>*              rank_group_players;
     //RankNode<int>*            min_group_player;   
     
