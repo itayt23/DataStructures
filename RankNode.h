@@ -169,8 +169,8 @@ RankNode<T>::~RankNode()
 {
 	if(this->key != nullptr){
 		delete this->key;
-		delete[] this->players_score_arr;// or free? delete[]
-		delete[] this->players_score_arr_sub_tree;
+		//delete[] this->players_score_arr;// or free? delete[]
+		//delete[] this->players_score_arr_sub_tree;
 		this->key = nullptr;
 		this->players_score_arr = nullptr;
 		this->players_score_arr_sub_tree = nullptr;
@@ -959,6 +959,8 @@ RankNode<T>* RankNode<T>::remove(T* key_remove){
 		temp_iterator = new_subtree;
 		while(temp_iterator != nullptr){
 			temp_iterator->updateHeight();
+			temp_iterator->updateNodeFeatures();
+			temp_iterator->updateLevelSumSubTree();
 			temp_iterator = temp_iterator->parent;
 		}
 	}

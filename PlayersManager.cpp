@@ -550,7 +550,7 @@ static void updateLevelZero(RankNode<int>* level_zero_final, RankNode<int>* grou
     if(group_tree1_level_zero == nullptr && group_tree2_level_zero == nullptr) level_zero_final = nullptr;
     else if(group_tree1_level_zero != nullptr && group_tree2_level_zero == nullptr)
     {
-        for(int i = 0; i< group_tree1_level_zero->getScale(); i++)
+        for(int i = 1; i<= group_tree1_level_zero->getScale(); i++)
         {
             level_zero_final->getScoreArr()[i] = group_tree1_level_zero->getScoreArr()[i];
             level_zero_final->getScoreArrSubTree()[i] = group_tree1_level_zero->getScoreArrSubTree()[i];
@@ -560,7 +560,7 @@ static void updateLevelZero(RankNode<int>* level_zero_final, RankNode<int>* grou
     }
     else if(group_tree1_level_zero == nullptr && group_tree2_level_zero != nullptr)
     {
-        for(int i = 0; i< group_tree2_level_zero->getScale(); i++)
+        for(int i = 1; i<= group_tree2_level_zero->getScale(); i++)
         {
             level_zero_final->getScoreArr()[i] = group_tree2_level_zero->getScoreArr()[i];
             level_zero_final->getScoreArrSubTree()[i] = group_tree2_level_zero->getScoreArrSubTree()[i];
@@ -570,7 +570,7 @@ static void updateLevelZero(RankNode<int>* level_zero_final, RankNode<int>* grou
     }
     else if(group_tree1_level_zero != nullptr && group_tree2_level_zero != nullptr)
     {
-        for(int i = 0; i< group_tree1_level_zero->getScale(); i++)
+        for(int i = 1; i<= group_tree1_level_zero->getScale(); i++)
         {
             level_zero_final->getScoreArr()[i] = group_tree1_level_zero->getScoreArr()[i] + group_tree2_level_zero->getScoreArr()[i];
             level_zero_final->getScoreArrSubTree()[i] = group_tree1_level_zero->getScoreArrSubTree()[i] + group_tree2_level_zero->getScoreArrSubTree()[i];
@@ -585,7 +585,7 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
     int temp_size = m;
     double sum_total = 0;
     bool found_node = false;
-    if(iter_node->getPlayersAmountSubTree() < m)
+    if(iter_node->getPlayersAmountSubTree() <= m)
     {
         sum_total = iter_node->getLevelsSumSubTree();
         return sum_total/m;
@@ -608,6 +608,12 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
             }
             else if(temp_size < iter_node->getPlayersAmountSubTree())
             {
+                if(iter_node->getRightSon() == nullptr)
+                {
+                    sum_total += temp_size * *(iter_node->getKey());
+                    temp_size = 0;
+                    return sum_total/m;
+                }
                 iter_node = iter_node->getRightSon();
             }
             else if(temp_size > iter_node->getPlayersAmountSubTree())
@@ -622,9 +628,9 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
         {
             if(iter_node->getPlayersAmount() >= temp_size)
             {
-            sum_total += temp_size * *(iter_node->getKey());
-            temp_size = 0;
-            return sum_total/m;
+                sum_total += temp_size * *(iter_node->getKey());
+                temp_size = 0;
+                return sum_total/m;
             
             }
             else // if playeramount < temp_size

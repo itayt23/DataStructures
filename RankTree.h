@@ -140,6 +140,8 @@ void RankTree<T>::insert(T level, int score){
 			//RankNode<T>* node_added = this->root->search(temp_add);
 			//node_added->updateNodeAtRemove(score); //imdoing it because insert and search updating him twice(insert at the constructor)
 		}
+		this->root->updateNodeFeatures();
+		this->root->updateLevelSumSubTree();
 	}
 }
 
@@ -206,7 +208,9 @@ void RankTree<T>::remove(T key, int score){
 		{
 			this->root->searchAndUpdateAtRemove(temp_key, score);
 			//node_to_remove->updateLevelSumSubTrees();
-		} 
+		}
+		this->root->updateNodeFeatures();
+		this->root->updateLevelSumSubTree(); 
 	}
 }
 
