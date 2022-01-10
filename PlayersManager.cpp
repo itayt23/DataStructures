@@ -301,6 +301,7 @@ StatusType PlayersManager::AverageHighestPlayerLevelByGroup(int GroupID, int m, 
             *(avgLevel) = 0;
             return SUCCESS;
         }
+        this->all_players_tree->printTree();
         *(avgLevel) = getAverageHighestLevel(this->all_players_tree->getRootNode(), m);
         return SUCCESS;
     }
@@ -646,4 +647,3 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
     }
     return sum_total/m;
 }
-

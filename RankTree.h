@@ -32,6 +32,8 @@ class RankTree {
 		void inOrder();	 
 		void inOrderReverse();
 		void clearTree();
+		void printTree_rec(const std::string &prefix, RankNode<T> *node, bool isLeft);
+		void printTree();
 		int getScale() const;
 		class Empty {};
 		class NodeAlreadyExists {};
@@ -307,6 +309,31 @@ template <class T>
 int RankTree<T>::getRootSize()
 {
 	return this->root_size;
+}
+
+template <class T>
+void RankTree<T>::printTree() {
+    std::cout << "\n"
+              << std::endl;
+    this->printTree_rec("", this->getRootNode(), false);
+    std::cout << "\n"
+              << std::endl;
+}
+
+template <class T>
+void RankTree<T>::printTree_rec(const std::string &prefix, RankNode<T> *node, bool isLeft) {
+    if (node != nullptr) {
+        std::cout << prefix;
+
+        std::cout << (isLeft ? "├──────" : "└──────");
+
+        //         print the value of the node
+        std::cout << "id: " << *(node->getKey()) << std::endl;
+
+        //         enter the next tree level - left and right branch
+        printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getRightSon(), true);
+        printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getLeftSon(), false);
+    }
 }
 
 
