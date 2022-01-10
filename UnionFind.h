@@ -49,7 +49,7 @@ UnionFind<T>::UnionFind(int k, int scale)
 template<class T>
 UnionFind<T>::~UnionFind()
 {
-    for(int i = 0; i < this->uf_group_arr_size; i++) 
+    for(int i = 1; i <= this->uf_group_arr_size; i++) 
     {
         delete uf_group_arr[i];
     }
