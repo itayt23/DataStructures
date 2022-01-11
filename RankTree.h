@@ -328,7 +328,7 @@ void RankTree<T>::printTree_rec(const std::string &prefix, RankNode<T> *node, bo
         std::cout << (isLeft ? "├──────" : "└──────");
 
         //         print the value of the node
-        std::cout << "id: " << *(node->getKey()) << std::endl;
+        std::cout << "id:" << *(node->getKey()) << " Ps:" << node->getPlayersAmountSubTree() << " Ls:" <<node->getLevelsSumSubTree() << std::endl;
 
         //         enter the next tree level - left and right branch
         printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getRightSon(), true);

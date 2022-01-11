@@ -939,9 +939,20 @@ RankNode<T>* RankNode<T>::removeNode(){
 			min_node_parent->left = this;
 			this->parent = min_node_parent;
 		}
-		min_node_parent->updateHeight();
-		min_node_parent->updateNodeFeatures();
-		min_node_parent->updateLevelSumSubTree();
+		//this->updateHeight();
+		//this->updateNodeFeatures();
+		//this->updateLevelSumSubTree();
+		//min_node_parent->updateHeight();
+		//min_node_parent->updateNodeFeatures();
+		//min_node_parent->updateLevelSumSubTree();
+		RankNode<T>* temp_iter = this;
+		while(temp_iter != nullptr)
+		{
+			temp_iter->updateHeight();
+			temp_iter->updateNodeFeatures();
+			temp_iter->updateLevelSumSubTree();
+			temp_iter = temp_iter->getParent();
+		}
 		this->removeNode();	// now 'this' is removed, maybe as a leaf and maybe as a father to one right son.
 		min_node->updateHeight();// the parent of the left subtree's root.
 		min_node->updateNodeFeatures();
