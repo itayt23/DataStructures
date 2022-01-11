@@ -223,6 +223,7 @@ StatusType PlayersManager::ChangePlayerIDScore(int PlayerID, int NewScore){
         this->groups_uf->find(player_groupid)->getGroupPlayersTree()->insert(player_level, NewScore); // O(log* k) - find and remove in UnionFind.
         //if(player_groupid == 25)
         //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printZeroTree();
+        //this->all_players_tree->printTree();
     } catch (AllocationError& e) { return ALLOCATION_ERROR; }
     return SUCCESS;
 }
@@ -366,7 +367,7 @@ StatusType PlayersManager::GetPlayersBound(int GroupID, int score, int m, int* L
  */
 static double getBestPlayersAverageLevel(RankNode<int>* node, int m){
     int current_subtree_players = node->getPlayersAmountSubTree();  // the whole subtree (including the node)
-    int current_node_players = node->getPlayersAmount();    // only the players in the node
+    //int current_node_players = node->getPlayersAmount();    // only the players in the node
     int root_level = *(node->getKey());     // the key is the pointer to the level.
     int root_only_numOfPlayers = node->getPlayersAmount();
     int left_son_level = *(node->getLeftSon()->getKey());

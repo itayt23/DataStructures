@@ -55,7 +55,7 @@ void ChainHashTable::upsize(){
     PlayerNode** new_table = new PlayerNode*[new_size];
     PlayerNode** old_table = this->table;
     PlayerNode* iterator = nullptr;
-    int new_HT_index;
+    //int new_HT_index;
     this->capacity = 0; // we insert the old values and that will grow the capacity to it's former size. 
     //focues on the new table content
     this->table = new_table;
@@ -68,7 +68,7 @@ void ChainHashTable::upsize(){
     for(int i=0; i < old_size; i++){
         iterator=old_table[i];      // takes the head of the chain
         while(iterator != nullptr){
-            new_HT_index = calculateHash(iterator->getPlayer()->getPlayerID());
+            //new_HT_index = calculateHash(iterator->getPlayer()->getPlayerID());
             this->insertHT(iterator->getPlayer());      // assure that the new table is already updated for hash index calculations 
             iterator=iterator->getNext();
         }

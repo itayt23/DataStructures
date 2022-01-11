@@ -39,8 +39,7 @@ UnionFind<T>::UnionFind(int k, int scale)
     //T data = new T(0);
     this->uf_group_arr = new UfNode<T>*[k];
     this->uf_group_arr_size = k;
-    //this->uf_group_arr = (UfNode<T>**)malloc(sizeof(*this->uf_group_arr)*k);
-    for(int i = 1; i<=k; i++) // TODO: i is need to be 1 and i<=k?
+    for(int i = 1; i<=k; i++)
     {
         uf_group_arr[i] = new UfNode<T>(i, scale);
     }

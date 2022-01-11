@@ -129,17 +129,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named DS2
+# Target rules for targets named game
 
 # Build rule for target.
-DS2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 DS2
-.PHONY : DS2
+game: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 game
+.PHONY : game
 
 # fast build rule for target.
-DS2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/build
-.PHONY : DS2/fast
+game/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/build
+.PHONY : game/fast
 
 ChainHashTable.obj: ChainHashTable.cpp.obj
 
@@ -147,7 +147,7 @@ ChainHashTable.obj: ChainHashTable.cpp.obj
 
 # target to build an object file
 ChainHashTable.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/ChainHashTable.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/ChainHashTable.cpp.obj
 .PHONY : ChainHashTable.cpp.obj
 
 ChainHashTable.i: ChainHashTable.cpp.i
@@ -156,7 +156,7 @@ ChainHashTable.i: ChainHashTable.cpp.i
 
 # target to preprocess a source file
 ChainHashTable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/ChainHashTable.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/ChainHashTable.cpp.i
 .PHONY : ChainHashTable.cpp.i
 
 ChainHashTable.s: ChainHashTable.cpp.s
@@ -165,7 +165,7 @@ ChainHashTable.s: ChainHashTable.cpp.s
 
 # target to generate assembly for a file
 ChainHashTable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/ChainHashTable.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/ChainHashTable.cpp.s
 .PHONY : ChainHashTable.cpp.s
 
 Group.obj: Group.cpp.obj
@@ -174,7 +174,7 @@ Group.obj: Group.cpp.obj
 
 # target to build an object file
 Group.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/Group.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/Group.cpp.obj
 .PHONY : Group.cpp.obj
 
 Group.i: Group.cpp.i
@@ -183,7 +183,7 @@ Group.i: Group.cpp.i
 
 # target to preprocess a source file
 Group.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/Group.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/Group.cpp.i
 .PHONY : Group.cpp.i
 
 Group.s: Group.cpp.s
@@ -192,7 +192,7 @@ Group.s: Group.cpp.s
 
 # target to generate assembly for a file
 Group.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/Group.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/Group.cpp.s
 .PHONY : Group.cpp.s
 
 Player.obj: Player.cpp.obj
@@ -201,7 +201,7 @@ Player.obj: Player.cpp.obj
 
 # target to build an object file
 Player.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/Player.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/Player.cpp.obj
 .PHONY : Player.cpp.obj
 
 Player.i: Player.cpp.i
@@ -210,7 +210,7 @@ Player.i: Player.cpp.i
 
 # target to preprocess a source file
 Player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/Player.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/Player.cpp.i
 .PHONY : Player.cpp.i
 
 Player.s: Player.cpp.s
@@ -219,7 +219,7 @@ Player.s: Player.cpp.s
 
 # target to generate assembly for a file
 Player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/Player.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/Player.cpp.s
 .PHONY : Player.cpp.s
 
 PlayerNode.obj: PlayerNode.cpp.obj
@@ -228,7 +228,7 @@ PlayerNode.obj: PlayerNode.cpp.obj
 
 # target to build an object file
 PlayerNode.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/PlayerNode.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/PlayerNode.cpp.obj
 .PHONY : PlayerNode.cpp.obj
 
 PlayerNode.i: PlayerNode.cpp.i
@@ -237,7 +237,7 @@ PlayerNode.i: PlayerNode.cpp.i
 
 # target to preprocess a source file
 PlayerNode.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/PlayerNode.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/PlayerNode.cpp.i
 .PHONY : PlayerNode.cpp.i
 
 PlayerNode.s: PlayerNode.cpp.s
@@ -246,7 +246,7 @@ PlayerNode.s: PlayerNode.cpp.s
 
 # target to generate assembly for a file
 PlayerNode.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/PlayerNode.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/PlayerNode.cpp.s
 .PHONY : PlayerNode.cpp.s
 
 PlayersManager.obj: PlayersManager.cpp.obj
@@ -255,7 +255,7 @@ PlayersManager.obj: PlayersManager.cpp.obj
 
 # target to build an object file
 PlayersManager.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/PlayersManager.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/PlayersManager.cpp.obj
 .PHONY : PlayersManager.cpp.obj
 
 PlayersManager.i: PlayersManager.cpp.i
@@ -264,7 +264,7 @@ PlayersManager.i: PlayersManager.cpp.i
 
 # target to preprocess a source file
 PlayersManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/PlayersManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/PlayersManager.cpp.i
 .PHONY : PlayersManager.cpp.i
 
 PlayersManager.s: PlayersManager.cpp.s
@@ -273,7 +273,7 @@ PlayersManager.s: PlayersManager.cpp.s
 
 # target to generate assembly for a file
 PlayersManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/PlayersManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/PlayersManager.cpp.s
 .PHONY : PlayersManager.cpp.s
 
 library2.obj: library2.cpp.obj
@@ -282,7 +282,7 @@ library2.obj: library2.cpp.obj
 
 # target to build an object file
 library2.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/library2.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/library2.cpp.obj
 .PHONY : library2.cpp.obj
 
 library2.i: library2.cpp.i
@@ -291,7 +291,7 @@ library2.i: library2.cpp.i
 
 # target to preprocess a source file
 library2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/library2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/library2.cpp.i
 .PHONY : library2.cpp.i
 
 library2.s: library2.cpp.s
@@ -300,7 +300,7 @@ library2.s: library2.cpp.s
 
 # target to generate assembly for a file
 library2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/library2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/library2.cpp.s
 .PHONY : library2.cpp.s
 
 main2.obj: main2.cpp.obj
@@ -309,7 +309,7 @@ main2.obj: main2.cpp.obj
 
 # target to build an object file
 main2.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/main2.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/main2.cpp.obj
 .PHONY : main2.cpp.obj
 
 main2.i: main2.cpp.i
@@ -318,7 +318,7 @@ main2.i: main2.cpp.i
 
 # target to preprocess a source file
 main2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/main2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/main2.cpp.i
 .PHONY : main2.cpp.i
 
 main2.s: main2.cpp.s
@@ -327,7 +327,7 @@ main2.s: main2.cpp.s
 
 # target to generate assembly for a file
 main2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\DS2.dir\build.make CMakeFiles/DS2.dir/main2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\game.dir\build.make CMakeFiles/game.dir/main2.cpp.s
 .PHONY : main2.cpp.s
 
 # Help Target
@@ -338,7 +338,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... DS2
+	@echo ... game
 	@echo ... ChainHashTable.obj
 	@echo ... ChainHashTable.i
 	@echo ... ChainHashTable.s

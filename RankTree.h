@@ -43,7 +43,8 @@ class RankTree {
 };
 
 template<class T>
-RankTree<T>::RankTree(int scale) : scale(scale), root(nullptr), level_zero(nullptr){ 
+RankTree<T>::RankTree(int scale) :root(nullptr), level_zero(nullptr){ 
+	this->scale = scale;
 	this->root_size = 0; 
 	}
 
@@ -331,7 +332,7 @@ void RankTree<T>::printTree_rec(const std::string &prefix, RankNode<T> *node, bo
         std::cout << (isLeft ? "├──────" : "└──────");
 
         //         print the value of the node
-        std::cout << "id:" << *(node->getKey()) << " Ps:" << node->getPlayersAmountSubTree() << " Ls:" <<node->getLevelsSumSubTree() << " score 3 Sub:" <<node->getScoreArrSubTree()[3] << " score 3 :" <<node->getScoreArr()[3]<< std::endl;
+        std::cout << "id:" << *(node->getKey()) << " Ps:" << node->getPlayersAmountSubTree() << " Ls:" <<node->getLevelsSumSubTree() << " score Sub:" <<node->getScoreArrSubTree()[9] << " score:" <<node->getScoreArr()[9]<< std::endl;
 
         //         enter the next tree level - left and right branch
         printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getRightSon(), true);

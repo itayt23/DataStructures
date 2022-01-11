@@ -120,7 +120,6 @@ RankNode<T>::RankNode(T* key, RankNode<T>* parent, int score, int scale) : key(k
     this->players_amount = 1;
     this->players_amount_sub_tree = 1;
 	this->scale = scale;
-	//this->players_score_arr = (int*)malloc(sizeof(*this->players_score_arr)*scale);
 	this->players_score_arr = new int[scale];
     this->players_score_arr_sub_tree = new int[scale];
     for(int i =1; i<=scale; i++)
@@ -354,7 +353,8 @@ void RankNode<T>::updateLevelSumSubTreesAtInsert() {
 
 template<class T>
 void RankNode<T>::updateLevelSumSubTree() {
-	if(this == nullptr) return;
+	RankNode<T>* temp = this;
+	if(temp == nullptr) return;
 	if(this->isLeaf())
 	{
 		this->levels_sum_sub_tree = this->level_sum;
@@ -375,7 +375,8 @@ void RankNode<T>::updateLevelSumSubTree() {
 
 template<class T>
 void RankNode<T>::updateNodeFeatures() {
-	if(this == nullptr) return;
+	RankNode<T>* temp = this;
+	if(temp == nullptr) return;
 	if(this->isLeaf())
 	{
 		this->setScoreArrSubTree(this->copyScoreArr());
@@ -445,7 +446,7 @@ void RankNode<T>::updateLLFeatures() {
 	int* A_score_arr_sub = this->getScoreArrSubTree();
 	int* B_score_arr_sub = this->right->getScoreArrSubTree();
 	int* B_score_arr = this->right->getScoreArr();
-	int B_players_amount_sub = this->right->getPlayersAmountSubTree();
+	//int B_players_amount_sub = this->right->getPlayersAmountSubTree();
 	int* Ar_score_arr_sub = nullptr;
 	int Ar_players_amount_sub = 0;
 	int Br_players_amount_sub = 0;
@@ -524,7 +525,7 @@ void RankNode<T>::updateRRFeatures() {
 	int* A_score_arr_sub = this->getScoreArrSubTree();
 	int* B_score_arr_sub = this->left->getScoreArrSubTree();
 	int* B_score_arr = this->left->getScoreArr();
-	int B_players_amount_sub = this->left->getPlayersAmountSubTree();
+	//int B_players_amount_sub = this->left->getPlayersAmountSubTree();
 	int* Al_score_arr_sub = nullptr;
 	int Al_players_amount_sub = 0;
 	int Br_players_amount_sub = 0;
