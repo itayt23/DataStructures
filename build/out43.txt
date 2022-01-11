@@ -1,0 +1,13 @@
+Init done.
+AddPlayer: SUCCESS
+AddPlayer: SUCCESS
+AddPlayer: INVALID_INPUT
+AddPlayer: SUCCESS
+AddPlayer: SUCCESS
+AddPlayer: SUCCESS
+ChangePlayerIDScore: SUCCESS
+AddPlayer: FAILURE
+MergeGroups: INVALID_INPUT
+AddPlayer: SUCCESS
+AverageHighestPlayerLevelByGroup: 0.00
+AddPlayer: SUCCESS

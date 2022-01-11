@@ -128,8 +128,11 @@ RankNode<T>::RankNode(T* key, RankNode<T>* parent, int score, int scale) : key(k
         this->players_score_arr[i] = 0;				// score=0 is not a valid starting score therefore we'll use it as a blank
         this->players_score_arr_sub_tree[i] = 0;	// score=0 is not a valid starting score therefore we'll use it as a blank
     }
-    this->players_score_arr[score]++;	
-    this->players_score_arr_sub_tree[score]++;
+	if(score != EMPTY)
+	{
+		this->players_score_arr[score]++;	
+    	this->players_score_arr_sub_tree[score]++;
+	}
 	if(key != nullptr)
 	{
 		this->level_sum = *(key) * this->players_amount;
@@ -380,7 +383,7 @@ void RankNode<T>::updateNodeFeatures() {
 	}
 	else if(this->hasRightSon() && !(this->hasLeftSon()))
 	{
-		for(int i=0; i<this->getScale(); i++)
+		for(int i=1; i<=this->getScale(); i++)
     	{
         	this->getScoreArrSubTree()[i] = this->getRightSon()->getScoreArrSubTree()[i] + this->getScoreArr()[i];
     	}
@@ -388,7 +391,7 @@ void RankNode<T>::updateNodeFeatures() {
 	}
 	else if(!(this->hasRightSon()) && this->hasLeftSon())
 	{
-		for(int i=0; i<this->getScale(); i++)
+		for(int i=1; i<=this->getScale(); i++)
     	{
         	this->getScoreArrSubTree()[i] = this->getLeftSon()->getScoreArrSubTree()[i] + this->getScoreArr()[i];
     	}
@@ -396,7 +399,7 @@ void RankNode<T>::updateNodeFeatures() {
 	}
 	else if(this->hasRightSon() && this->hasLeftSon())
 	{
-		for(int i=0; i<this->getScale(); i++)
+		for(int i=1; i<=this->getScale(); i++)
     	{
         	this->getScoreArrSubTree()[i] = this->getLeftSon()->getScoreArrSubTree()[i] + this->getRightSon()->getScoreArrSubTree()[i] + this->getScoreArr()[i];
     	}
@@ -467,7 +470,7 @@ void RankNode<T>::updateLLFeatures() {
 	}
 	else if(this->right->hasRightSon() && !(this->right->hasLeftSon()))
 	{
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			B_score_arr_sub[i] = Br_score_arr_sub[i] + B_score_arr[i];
 		}
@@ -483,7 +486,7 @@ void RankNode<T>::updateLLFeatures() {
 	}
 	else if(this->right->hasRightSon() && this->right->hasLeftSon())
 	{
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			B_score_arr_sub[i] = Ar_score_arr_sub[i] + Br_score_arr_sub[i] + B_score_arr[i];
 		}
@@ -496,7 +499,7 @@ void RankNode<T>::updateLLFeatures() {
 	if(this->left != nullptr)
 	{
 		this->setPlayersAmountSubTree(this->left->getPlayersAmountSubTree()+this->right->getPlayersAmountSubTree()+this->getPlayersAmount());
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			A_score_arr_sub[i] = B_score_arr_sub[i] + this->left->getScoreArrSubTree()[i] + this->getScoreArr()[i];
 		}
@@ -506,7 +509,7 @@ void RankNode<T>::updateLLFeatures() {
 	else
 	{
 		this->setPlayersAmountSubTree(this->right->getPlayersAmountSubTree()+this->getPlayersAmount());
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			A_score_arr_sub[i] = B_score_arr_sub[i] + this->getScoreArr()[i];
 		}
@@ -546,7 +549,7 @@ void RankNode<T>::updateRRFeatures() {
 	}
 	else if(this->left->hasRightSon() && !(this->left->hasLeftSon()))
 	{
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			B_score_arr_sub[i] = Al_score_arr_sub[i] + B_score_arr[i];
 		}
@@ -554,7 +557,7 @@ void RankNode<T>::updateRRFeatures() {
 	}
 	else if(!(this->left->hasRightSon()) && this->left->hasLeftSon())
 	{
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			B_score_arr_sub[i] = Br_score_arr_sub[i] + B_score_arr[i];
 		}
@@ -562,7 +565,7 @@ void RankNode<T>::updateRRFeatures() {
 	}
 	else if(this->left->hasRightSon() && this->left->hasLeftSon())
 	{
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			B_score_arr_sub[i] = Al_score_arr_sub[i] + Br_score_arr_sub[i] + B_score_arr[i];
 		}
@@ -575,7 +578,7 @@ void RankNode<T>::updateRRFeatures() {
 	if(this->right != nullptr)
 	{
 		this->setPlayersAmountSubTree(this->left->getPlayersAmountSubTree()+this->right->getPlayersAmountSubTree()+this->getPlayersAmount());
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			A_score_arr_sub[i] = B_score_arr_sub[i] + this->right->getScoreArrSubTree()[i] + this->getScoreArr()[i];
 		}
@@ -585,7 +588,7 @@ void RankNode<T>::updateRRFeatures() {
 	else
 	{
 		this->setPlayersAmountSubTree(this->left->getPlayersAmountSubTree()+this->getPlayersAmount());
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			A_score_arr_sub[i] = B_score_arr_sub[i] + this->getScoreArr()[i];
 		}

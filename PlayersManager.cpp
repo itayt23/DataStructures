@@ -241,6 +241,7 @@ StatusType PlayersManager::GetPercentOfPlayersWithScoreInBounds(int GroupID, int
     if(lowerLevel > higherLevel) return FAILURE; 
     if(GroupID == 0)
     {
+        //this->all_players_tree->printTree();
         if(this->all_players_tree->getLevelZero() == nullptr && this->all_players_tree->getRootNode() == nullptr) return FAILURE;
         if(higherLevel == 0 && this->all_players_tree->getLevelZero() == nullptr) return FAILURE;
         if(this->all_players_tree->getRootNode() != nullptr)
@@ -615,7 +616,6 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
     int temp_size = m;
     double sum_total = 0;
     bool found_node = false;
-    iter_node->updateLevelSumSubTree();
     if(iter_node->getPlayersAmountSubTree() <= m)
     {
         sum_total = iter_node->getLevelsSumSubTree();
@@ -670,7 +670,6 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
                 found_node = false;
             }
         }
-        iter_node->updateLevelSumSubTree();
     }
     return sum_total/m;
 }
