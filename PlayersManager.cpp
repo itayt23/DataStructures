@@ -164,7 +164,7 @@ StatusType PlayersManager::RemovePlayer(int PlayerID){
     int removed_player_score = removed_player->getPlayerScore();
     this->players_table->deleteHT(PlayerID);  // ~O(1) hash table find   // no need to check HT_status, we can assert that it's a success.
     this->all_players_tree->remove(removed_player_level, removed_player_score); // O(log n) rank tree, n is the players
-    //if(removed_player_level !=0 && removed_player_groupid == 25)
+    //if(removed_player_level !=0)
         //this->all_players_tree->printTree();
     this->groups_uf->find(removed_player_groupid)->getGroupPlayersTree()->remove(removed_player_level, removed_player_score); // O(log* k) - find and remove in UnionFind.
     //if(removed_player_groupid == 25)
@@ -184,6 +184,7 @@ StatusType PlayersManager::IncreasePlayerIDLevel(int PlayerID, int LevelIncrease
     target_player->setPlayerLevel(new_player_level);
     //removing the old data, and then insert the updated data.
     this->all_players_tree->remove(old_player_level, player_score); // O(log n) rank tree, n is the players
+    //this->all_players_tree->printTree();
     this->groups_uf->find(player_groupid)->getGroupPlayersTree()->remove(old_player_level, player_score); // O(log* k) - find and remove in UnionFind.
     try {
         this->all_players_tree->insert(new_player_level, player_score); // O(log n) rank tree, n is the players
@@ -627,11 +628,9 @@ static double getAverageHighestLevel(RankNode<int>* iter_node, int m)
             {
                 if(iter_node->getRightSon() == nullptr)
                 {
-                    sum_total += temp_size * *(iter_node->getKey());
-                    temp_size = 0;
-                    return sum_total/m;
+                    found_node = true;
                 }
-                iter_node = iter_node->getRightSon();
+                else iter_node = iter_node->getRightSon();
             }
             else if(temp_size > iter_node->getPlayersAmountSubTree())
             {
