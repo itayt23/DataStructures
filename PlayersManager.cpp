@@ -112,6 +112,14 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2){
         RankNode<int>* level_zero_final = new RankNode<int>(zero, nullptr, 0 ,this->score_scale);
         updateLevelZero(level_zero_final, group_tree1_level_zero, group_tree2_level_zero);
         RankTree<int>* final_tree = new RankTree<int>(final_tree_root, level_zero_final, this->score_scale, merged_array_size_final);
+        if(group_tree1_level_zero == nullptr && group_tree2_level_zero == nullptr)
+        {
+            final_tree->getLevelZero()->setPlayersAmount(0);
+            final_tree->getLevelZero()->setPlayersAmountSubTree(0);
+        }
+        //group_tree1->printZeroTree();
+        //group_tree2->printZeroTree();
+        //final_tree->printZeroTree();
         group_tree1->clearTree();
         group_tree2->clearTree();
         this->groups_uf->unionGroups(GroupID1, GroupID2);
@@ -149,6 +157,7 @@ StatusType PlayersManager::AddPlayer(int PlayerID, int GroupID, int score){
         if(status == HT_ALREADY_EXISTS) return FAILURE;
         this->all_players_tree->insert(new_player.getPlayerLevel(), new_player.getPlayerScore());   
         this->groups_uf->find(GroupID)->getGroupPlayersTree()->insert(new_player.getPlayerLevel(), score);
+        //this->groups_uf->find(GroupID)->getGroupPlayersTree()->printZeroTree();
         this->total_players++;
     } catch (AllocationError &e) {
         return ALLOCATION_ERROR;
@@ -169,6 +178,7 @@ StatusType PlayersManager::RemovePlayer(int PlayerID){
     this->groups_uf->find(removed_player_groupid)->getGroupPlayersTree()->remove(removed_player_level, removed_player_score); // O(log* k) - find and remove in UnionFind.
     //if(removed_player_groupid == 25)
     //this->groups_uf->find(removed_player_groupid)->getGroupPlayersTree()->printTree();
+    //this->groups_uf->find(removed_player_groupid)->getGroupPlayersTree()->printZeroTree();
     this->total_players--;
     return SUCCESS;
 }
@@ -191,6 +201,7 @@ StatusType PlayersManager::IncreasePlayerIDLevel(int PlayerID, int LevelIncrease
         this->groups_uf->find(player_groupid)->getGroupPlayersTree()->insert(new_player_level, player_score); // O(log* k) - find and remove in UnionFind.
         //if(player_groupid == 25)
         //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printTree();
+        //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printZeroTree();
     } catch (AllocationError& e) { return ALLOCATION_ERROR; }
     return SUCCESS;
 }
@@ -211,7 +222,7 @@ StatusType PlayersManager::ChangePlayerIDScore(int PlayerID, int NewScore){
         this->all_players_tree->insert(player_level, NewScore); // O(log n) rank tree, n is the players
         this->groups_uf->find(player_groupid)->getGroupPlayersTree()->insert(player_level, NewScore); // O(log* k) - find and remove in UnionFind.
         //if(player_groupid == 25)
-        //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printTree();
+        //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printZeroTree();
     } catch (AllocationError& e) { return ALLOCATION_ERROR; }
     return SUCCESS;
 }
@@ -265,6 +276,8 @@ StatusType PlayersManager::GetPercentOfPlayersWithScoreInBounds(int GroupID, int
     else
     {
         RankTree<int>* group_tree = this->groups_uf->find(GroupID)->getGroupPlayersTree();
+        //group_tree->printTree();
+        //group_tree->printZeroTree();
         if(group_tree->getRootNode() != nullptr)
         {
             if(lowerLevel > *(group_tree->getRootNode()->getMaxNode()->getKey())) return FAILURE;

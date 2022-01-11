@@ -34,6 +34,8 @@ class RankTree {
 		void clearTree();
 		void printTree_rec(const std::string &prefix, RankNode<T> *node, bool isLeft);
 		void printTree();
+		void printZeroTree_rec(const std::string &prefix, RankNode<T> *node, bool isLeft);
+		void printZeroTree();
 		int getScale() const;
 		class Empty {};
 		class NodeAlreadyExists {};
@@ -45,6 +47,7 @@ RankTree<T>::RankTree(int scale) : scale(scale), root(nullptr), level_zero(nullp
 	this->root_size = 0; 
 	}
 
+//before change it was: level_zero(level_zero) {and than it put inside 1 it player amount}
 template<class T>
 RankTree<T>::RankTree(RankNode<T>* root, RankNode<T>* level_zero, int scale, int root_size) : root(root), level_zero(level_zero), scale(scale), root_size(root_size){}
 
@@ -335,6 +338,32 @@ void RankTree<T>::printTree_rec(const std::string &prefix, RankNode<T> *node, bo
         printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getLeftSon(), false);
     }
 }
+
+template <class T>
+void RankTree<T>::printZeroTree() {
+    std::cout << "\n"
+              << std::endl;
+    this->printZeroTree_rec("", this->getLevelZero(), false);
+    std::cout << "\n"
+              << std::endl;
+}
+
+template <class T>
+void RankTree<T>::printZeroTree_rec(const std::string &prefix, RankNode<T> *node, bool isLeft) {
+    if (node != nullptr) {
+        std::cout << prefix;
+
+        std::cout << (isLeft ? "├──────" : "└──────");
+
+        //         print the value of the node
+        std::cout << "Pla:" << (node->getPlayersAmount()) << std::endl;
+
+        //         enter the next tree level - left and right branch
+        printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getRightSon(), true);
+        printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getLeftSon(), false);
+    }
+}
+
 
 
 #endif
