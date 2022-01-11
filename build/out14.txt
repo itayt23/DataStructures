@@ -237,7 +237,7 @@ ChangePlayerIDScore: SUCCESS
 MergeGroups: SUCCESS
 ChangePlayerIDScore: SUCCESS
 MergeGroups: INVALID_INPUT
-AverageHighestPlayerLevelByGroup: 3.00
+AverageHighestPlayerLevelByGroup: 4.36
 RemovePlayer: SUCCESS
 GetPercentOfPlayersWithScoreInBounds: 7.69
 RemovePlayer: SUCCESS

@@ -164,9 +164,11 @@ StatusType PlayersManager::RemovePlayer(int PlayerID){
     int removed_player_score = removed_player->getPlayerScore();
     this->players_table->deleteHT(PlayerID);  // ~O(1) hash table find   // no need to check HT_status, we can assert that it's a success.
     this->all_players_tree->remove(removed_player_level, removed_player_score); // O(log n) rank tree, n is the players
-    //if(removed_player_level !=0)
+    //if(removed_player_level !=0 && removed_player_groupid == 25)
         //this->all_players_tree->printTree();
     this->groups_uf->find(removed_player_groupid)->getGroupPlayersTree()->remove(removed_player_level, removed_player_score); // O(log* k) - find and remove in UnionFind.
+    //if(removed_player_groupid == 25)
+    //this->groups_uf->find(removed_player_groupid)->getGroupPlayersTree()->printTree();
     this->total_players--;
     return SUCCESS;
 }
@@ -185,8 +187,9 @@ StatusType PlayersManager::IncreasePlayerIDLevel(int PlayerID, int LevelIncrease
     this->groups_uf->find(player_groupid)->getGroupPlayersTree()->remove(old_player_level, player_score); // O(log* k) - find and remove in UnionFind.
     try {
         this->all_players_tree->insert(new_player_level, player_score); // O(log n) rank tree, n is the players
-        //this->all_players_tree->printTree();
         this->groups_uf->find(player_groupid)->getGroupPlayersTree()->insert(new_player_level, player_score); // O(log* k) - find and remove in UnionFind.
+        //if(player_groupid == 25)
+        //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printTree();
     } catch (AllocationError& e) { return ALLOCATION_ERROR; }
     return SUCCESS;
 }
@@ -206,6 +209,8 @@ StatusType PlayersManager::ChangePlayerIDScore(int PlayerID, int NewScore){
     try {
         this->all_players_tree->insert(player_level, NewScore); // O(log n) rank tree, n is the players
         this->groups_uf->find(player_groupid)->getGroupPlayersTree()->insert(player_level, NewScore); // O(log* k) - find and remove in UnionFind.
+        //if(player_groupid == 25)
+        //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printTree();
     } catch (AllocationError& e) { return ALLOCATION_ERROR; }
     return SUCCESS;
 }
@@ -313,6 +318,7 @@ StatusType PlayersManager::AverageHighestPlayerLevelByGroup(int GroupID, int m, 
         return SUCCESS;
     }
     RankTree<int>* group_tree = this->groups_uf->find(GroupID)->getGroupPlayersTree();
+    //group_tree->printTree();
     if(group_tree->getRootNode() == nullptr)
     {
         *(avgLevel) = 0;
@@ -541,6 +547,8 @@ static void arrayToTree(RankNode<int>* node, RankNode<int>** merged_array, int* 
     (*index)++;
 
     arrayToTree(node->getRightSon(), merged_array, array_size, index);  // recursive call to the rught subtree
+    node->updateNodeFeatures();
+    node->updateLevelSumSubTree();
 }
 
 static RankNode<int>** fixMergedArray(RankNode<int>** merge_array, int merged_array_size, int merged_array_size_final)
