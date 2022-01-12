@@ -14,7 +14,7 @@ class Player
 	public:
         Player(); 
     	Player(int player_id, int GroupID, int score, int level = INITIAL_LEVEL);
-		~Player();  
+		~Player() = default;  
         Player(const Player& to_copy); 
 
         /* Get funcitons */

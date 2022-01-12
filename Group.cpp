@@ -16,6 +16,7 @@ Group::~Group(){
     if(this->rank_group_players != nullptr)
     {
         this->rank_group_players->clearTree();
+        this->rank_group_players = nullptr;
     }    
 }
 

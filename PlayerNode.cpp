@@ -13,7 +13,8 @@ PlayerNode::PlayerNode(Player* player_t){
 }
 
 PlayerNode::~PlayerNode(){
-    delete player;
+    if(player != nullptr)
+        delete player;
     this->player = nullptr;
     this->next = nullptr;
 }

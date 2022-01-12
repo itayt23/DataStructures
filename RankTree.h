@@ -332,7 +332,7 @@ void RankTree<T>::printTree_rec(const std::string &prefix, RankNode<T> *node, bo
         std::cout << (isLeft ? "├──────" : "└──────");
 
         //         print the value of the node
-        std::cout << "id:" << *(node->getKey()) << " Ps:" << node->getPlayersAmountSubTree() << " Ls:" <<node->getLevelsSumSubTree() << " score Sub:" <<node->getScoreArrSubTree()[9] << " score:" <<node->getScoreArr()[9]<< std::endl;
+        std::cout << "id:" << *(node->getKey()) << " Ps:" << node->getPlayersAmountSubTree() << " Ls:" <<node->getLevelsSumSubTree() << " score Sub:" <<node->getScoreArrSubTree()[1] << " score:" <<node->getScoreArr()[1]<< std::endl;
 
         //         enter the next tree level - left and right branch
         printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getRightSon(), true);
@@ -357,7 +357,7 @@ void RankTree<T>::printZeroTree_rec(const std::string &prefix, RankNode<T> *node
         std::cout << (isLeft ? "├──────" : "└──────");
 
         //         print the value of the node
-        std::cout << "Pla:" << (node->getPlayersAmount()) << std::endl;
+        std::cout << "Pla:" << (node->getPlayersAmount()) << " Score x:" << (node->getScoreArr()[1]) <<std::endl;
 
         //         enter the next tree level - left and right branch
         printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getRightSon(), true);

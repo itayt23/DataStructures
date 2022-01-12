@@ -171,12 +171,21 @@ RankNode<T>::~RankNode()
 {
 	if(this->key != nullptr){
 		delete this->key;
-		//delete[] this->players_score_arr;// or free? delete[]
-		//delete[] this->players_score_arr_sub_tree;
 		this->key = nullptr;
+	}
+	if(this->players_score_arr != nullptr)
+	{
+		//delete[] this->players_score_arr;
 		this->players_score_arr = nullptr;
+	}
+	if(this->players_score_arr_sub_tree != nullptr)
+	{
+		//delete[] this->players_score_arr_sub_tree;
 		this->players_score_arr_sub_tree = nullptr;
 	}
+	this->left = nullptr;
+	this->right = nullptr;
+	this->parent = nullptr;
 }
 
 
@@ -250,15 +259,21 @@ void RankNode<T>::clearAll()	{
 
 	if(this->left != nullptr){
 		this->left->clearAll();
-		//delete[] this->players_score_arr;
-		//delete[] this->players_score_arr_sub_tree;
 		delete left;
 		left = nullptr;
 	}
+	if(this->players_score_arr != nullptr)
+	{
+		//delete[] this->players_score_arr;
+		this->players_score_arr = nullptr;
+	}
+	if(this->players_score_arr_sub_tree != nullptr)
+	{
+		//delete[] this->players_score_arr_sub_tree;
+		this->players_score_arr_sub_tree = nullptr;
+	}
 	if(this->right != nullptr){
 		this->right->clearAll();
-		//delete[] this->players_score_arr;
-		//delete[] this->players_score_arr_sub_tree;
 		delete right;
 		right = nullptr;
 	}
@@ -771,6 +786,8 @@ RankNode<T>* RankNode<T>::balanceTree(){
 	RankNode<T>* temp_iterator = this;  
 	RankNode<T>* new_tree_root = this; 
 	while(temp_iterator != nullptr){
+		temp_iterator->updateNodeFeatures();
+		temp_iterator->updateLevelSumSubTree();
 		if(temp_iterator->getBalanceFactor() == L_ROTATE){	// means LR or LL rotation
 		
 			if(temp_iterator->getLeftSon()->getBalanceFactor() >= 0 )

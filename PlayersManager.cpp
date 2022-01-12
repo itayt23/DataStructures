@@ -31,6 +31,9 @@ PlayersManager::~PlayersManager(){
     this->all_players_tree->clearTree();
     delete this->players_table;
     delete this->groups_uf;
+    this->all_players_tree = nullptr;
+    this->players_table = nullptr;
+    this->groups_uf = nullptr;
 }
 
 /* Primary DS functions ----------------------------------------------------------------------------------------------*/
@@ -136,6 +139,10 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2){
             son_gorup->setGroupPlayersTree(nullptr);
         }
         //root_group->getGroupPlayersTree()->printTree();
+        for(int i=0; i<merged_array_size_final;i++)
+        {
+            delete merged_array_final[i];
+        }
         delete[] group1_array;
         delete[] group2_array;
         delete[] merged_array;
@@ -196,6 +203,8 @@ StatusType PlayersManager::IncreasePlayerIDLevel(int PlayerID, int LevelIncrease
     this->all_players_tree->remove(old_player_level, player_score); // O(log n) rank tree, n is the players
     //this->all_players_tree->printTree();
     this->groups_uf->find(player_groupid)->getGroupPlayersTree()->remove(old_player_level, player_score); // O(log* k) - find and remove in UnionFind.
+    //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printTree();
+    //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printZeroTree();
     try {
         this->all_players_tree->insert(new_player_level, player_score); // O(log n) rank tree, n is the players
         this->groups_uf->find(player_groupid)->getGroupPlayersTree()->insert(new_player_level, player_score); // O(log* k) - find and remove in UnionFind.
@@ -223,6 +232,7 @@ StatusType PlayersManager::ChangePlayerIDScore(int PlayerID, int NewScore){
         this->groups_uf->find(player_groupid)->getGroupPlayersTree()->insert(player_level, NewScore); // O(log* k) - find and remove in UnionFind.
         //if(player_groupid == 25)
         //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printZeroTree();
+        //this->groups_uf->find(player_groupid)->getGroupPlayersTree()->printTree();
         //this->all_players_tree->printTree();
     } catch (AllocationError& e) { return ALLOCATION_ERROR; }
     return SUCCESS;
@@ -311,10 +321,10 @@ StatusType PlayersManager::GetPercentOfPlayersWithScoreInBounds(int GroupID, int
         player_final = *(total_players_max) - *(total_players_min) + level_players;
     }
     *(players) = double((score_final / player_final)*100); 
-    delete total_players_min;
-    delete total_players_in_score_min;
-    delete total_players_in_score_max;
-    delete total_players_max;
+    delete[] total_players_min;
+    delete[] total_players_in_score_min;
+    delete[] total_players_in_score_max;
+    delete[] total_players_max;
     return SUCCESS;
 
 }

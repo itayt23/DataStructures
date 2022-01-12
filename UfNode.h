@@ -13,7 +13,7 @@ class UfNode{
 	UfNode<T>*      parent;
 	public:
 		//UfNode(T* data, UfNode<T>* parent = nullptr, int uf_size=UF_INITIAL_SIZE);
-        UfNode(int key, int scale, UfNode<T>* parent = nullptr, int uf_size=UF_INITIAL_SIZE);
+        UfNode(int key, int scale, int uf_size=UF_INITIAL_SIZE, UfNode<T>* parent = nullptr);
 		~UfNode();
         int getUfSize() const;
         T* getData();
@@ -44,7 +44,7 @@ UfNode<T>::UfNode(T* data, UfNode<T>* parent, int uf_size){
 }
 */
 template<class T> 
-UfNode<T>::UfNode(int key, int scale, UfNode<T>* parent, int uf_size) : parent(parent),uf_size(uf_size)
+UfNode<T>::UfNode(int key, int scale, int uf_size, UfNode<T>* parent) :uf_size(uf_size), parent(parent)
 {
     this->data = new T(key, scale);
 }
@@ -53,6 +53,8 @@ template<class T>
 UfNode<T>::~UfNode()
 {
     delete data;
+    this->data = nullptr;
+    this->parent = nullptr;
     //delete parent;
 }
 

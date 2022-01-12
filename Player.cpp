@@ -18,7 +18,7 @@ Player::Player(const Player& to_copy){
     this->score = to_copy.score;
 }
 
-Player::~Player() {} 
+//Player::~Player() {} 
 
 /* Get functions----------------------------------------------------------------------------------------------------- */
 int Player::getPlayerID() const {

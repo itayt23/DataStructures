@@ -18,7 +18,8 @@ ChainHashTable::~ChainHashTable(){
         delete table[i];
         table[i] = nullptr;     // setting the deleted to nullptr is standard practive
     }
-    delete[] *table;
+    //delete[] *table;
+    //delete[] table;
     this->table=nullptr;        // setting the deleted to nullptr is standard practive
 }
 
