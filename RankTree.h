@@ -193,8 +193,7 @@ void RankTree<T>::remove(T key, int score){
 	{
 		if(this->level_zero->getPlayersAmount() == 1)
 		{
-			this->level_zero = this->level_zero->remove(temp_key);
-			delete temp_key;
+			this->level_zero = this->level_zero->remove(temp_key);		
 		}
 		else
 		{
@@ -214,9 +213,13 @@ void RankTree<T>::remove(T key, int score){
 		{
 			this->root->searchAndUpdateAtRemove(temp_key, score);
 		}
-		
 		//this->root->updateNodeFeatures();
 		//this->root->updateLevelSumSubTree();
+	}
+	if(temp_key != nullptr)
+	{
+		delete temp_key;
+		temp_key = nullptr;
 	}
 }
 

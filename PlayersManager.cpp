@@ -3,7 +3,6 @@
 #include <cmath>
 
 
-static double getBestPlayersAverageLevel(RankNode<int>* node, int m);
 static int highestPlayersByLevel(RankNode<int>* node, int* amount, int players_by_level);
 static void treeToArray(RankNode<int>* node, RankNode<int>** array, int* array_size);
 static void mergeArrays(RankNode<int>** group1_array, RankNode<int>** group2_array, RankNode<int>** merge_array,
@@ -183,7 +182,6 @@ StatusType PlayersManager::RemovePlayer(int PlayerID){
     //if(removed_player_level !=0)
         //this->all_players_tree->printTree();
     this->groups_uf->find(removed_player_groupid)->getGroupPlayersTree()->remove(removed_player_level, removed_player_score); // O(log* k) - find and remove in UnionFind.
-    //if(removed_player_groupid == 25)
     //this->groups_uf->find(removed_player_groupid)->getGroupPlayersTree()->printTree();
     //this->groups_uf->find(removed_player_groupid)->getGroupPlayersTree()->printZeroTree();
     this->total_players--;
@@ -237,7 +235,7 @@ StatusType PlayersManager::ChangePlayerIDScore(int PlayerID, int NewScore){
     } catch (AllocationError& e) { return ALLOCATION_ERROR; }
     return SUCCESS;
 }
-//TODO need to handle with failure
+
 StatusType PlayersManager::GetPercentOfPlayersWithScoreInBounds(int GroupID, int score, int lowerLevel,
                                                                  int higherLevel, double * players){
     if(GroupID < 0|| GroupID > this->groups_size) return INVALID_INPUT;
@@ -365,58 +363,6 @@ StatusType PlayersManager::GetPlayersBound(int GroupID, int score, int m, int* L
 }
 
 /* Auxiliary inner functions ---------------------------------------------------------------------------------------- */
-
-/**
- * @brief Get the Best @m Players Average
- * 
- * @param node 
- * @param m - number of wanted players, ASSUMES a valid m.
- * @param aux_sum - on start up shall be 0
- * @param aux_numOfPlayers - on startup shall be 0
- * @return double 
- */
-static double getBestPlayersAverageLevel(RankNode<int>* node, int m){
-    int current_subtree_players = node->getPlayersAmountSubTree();  // the whole subtree (including the node)
-    //int current_node_players = node->getPlayersAmount();    // only the players in the node
-    int root_level = *(node->getKey());     // the key is the pointer to the level.
-    int root_only_numOfPlayers = node->getPlayersAmount();
-    int left_son_level = *(node->getLeftSon()->getKey());
-    int right_son_level = *(node->getRightSon()->getKey());
-
-    if(m == current_subtree_players) { return (node->getLevelsSumSubTree() / m); }
-    if(node->hasRightSon() == false && node->hasLeftSon() == false ){
-        return root_level;
-    } else if( node->hasOnlyOneSon() && node->hasRightSon() ){
-        int right_son_numOfPlayers = node->getRightSon()->getPlayersAmount();
-        int remiaining_numOfPlayers = m - right_son_numOfPlayers;
-        if( m <= right_son_numOfPlayers) { return right_son_level; } 
-        else {
-            return (root_level*remiaining_numOfPlayers + right_son_level*right_son_numOfPlayers)/(m);
-        }
-    } else if( node->hasOnlyOneSon() && node->hasLeftSon() ){
-        int remiaining_numOfPlayers = m - root_only_numOfPlayers;
-        if( m <= root_only_numOfPlayers) { return root_level; }
-        else { 
-            return (root_level*root_only_numOfPlayers + left_son_level*remiaining_numOfPlayers)/(m);
-        }
-    } else if(node->hasTwoSon()) {
-        if( m < node->getPlayersAmountSubTree() && m <= node->getRightSon()->getPlayersAmountSubTree()) {       // m <= #(v->right) && m < #(v)
-            return getBestPlayersAverageLevel(node->getRightSon(), m);
-        } else if(m < node->getPlayersAmountSubTree() && m > node->getRightSon()->getPlayersAmountSubTree()) {   // #(v->right) < m < #(v)
-                int right_subtree_numOfPlayers = node->getRightSon()->getPlayersAmountSubTree();
-                int right_subtree_sum = node->getRightSon()->getLevelsSumSubTree();
-                int remaining_numOfPlayers = m - right_subtree_numOfPlayers;
-                if(root_only_numOfPlayers + right_subtree_numOfPlayers > m) {
-                    return ( remaining_numOfPlayers*root_level + right_subtree_sum )/(m);
-                } else {    // m=18 in my example while
-                    int sum = remaining_numOfPlayers*getBestPlayersAverageLevel(node->getLeftSon(), remaining_numOfPlayers)
-                            + root_only_numOfPlayers*root_level + right_subtree_sum;
-                    return sum/m;
-                }
-        }
-    }
-    return -1; // we shall NEVER get here. 
-}
 
 
 static int highestPlayersByLevel(RankNode<int>* node, int* amount, int players_by_level){

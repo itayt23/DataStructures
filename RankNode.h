@@ -494,7 +494,7 @@ void RankNode<T>::updateLLFeatures() {
 	}
 	else if(!(this->right->hasRightSon()) && this->right->hasLeftSon())
 	{
-		for(int i=0;i<this->getScale();i++)
+		for(int i=1;i<=this->getScale();i++)
 		{
 			B_score_arr_sub[i] = Ar_score_arr_sub[i] + B_score_arr[i];
 		}
@@ -1278,7 +1278,7 @@ int* RankNode<T>::getScoreArrSubTree(){
 template<class T>
 int* RankNode<T>::copyScoreArr(){
 	int* arr_to_copy = this->getScoreArr();
-	int* new_arr = new int[this->getScale()];
+	int* new_arr = new int[this->getScale()+1];
 	for(int i=1;i<=scale;i++)
 	{
 		new_arr[i] = arr_to_copy[i];
@@ -1289,7 +1289,7 @@ int* RankNode<T>::copyScoreArr(){
 template<class T>
 int* RankNode<T>::copyScoreArrSubTree(){
 	int* arr_to_copy = this->getScoreArrSubTree();
-	int* new_arr = new int[this->getScale()];
+	int* new_arr = new int[this->getScale()+1];
 	for(int i=1;i<=scale;i++)
 	{
 		new_arr[i] = arr_to_copy[i];
