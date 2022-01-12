@@ -120,8 +120,8 @@ RankNode<T>::RankNode(T* key, RankNode<T>* parent, int score, int scale) : key(k
     this->players_amount = 1;
     this->players_amount_sub_tree = 1;
 	this->scale = scale;
-	this->players_score_arr = new int[scale];
-    this->players_score_arr_sub_tree = new int[scale];
+	this->players_score_arr = new int[scale+1];
+    this->players_score_arr_sub_tree = new int[scale+1];
     for(int i =1; i<=scale; i++)
     {
         this->players_score_arr[i] = 0;				// score=0 is not a valid starting score therefore we'll use it as a blank
@@ -155,8 +155,8 @@ int* players_score_arr, int* players_score_arr_sub_tree, int scale, int level_su
     this->players_amount = players_amount;
     this->players_amount_sub_tree = players_amount_sub_tree;
 	this->scale = scale;
-	this->players_score_arr = new int[this->getScale()];
-	this->players_score_arr_sub_tree = new int[this->getScale()];
+	this->players_score_arr = new int[this->getScale()+1];
+	this->players_score_arr_sub_tree = new int[this->getScale()+1];
 	for(int i=1;i<=scale;i++)
 	{
 		this->players_score_arr[i] = players_score_arr[i];

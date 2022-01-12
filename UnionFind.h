@@ -37,7 +37,7 @@ template<class T>
 UnionFind<T>::UnionFind(int k, int scale)
 {
     //T data = new T(0);
-    this->uf_group_arr = new UfNode<T>*[k];
+    this->uf_group_arr = new UfNode<T>*[k+1];
     this->uf_group_arr_size = k;
     for(int i = 1; i<=k; i++)
     {
