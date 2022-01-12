@@ -12,7 +12,6 @@ class UfNode{
 	int             uf_size;
 	UfNode<T>*      parent;
 	public:
-		//UfNode(T* data, UfNode<T>* parent = nullptr, int uf_size=UF_INITIAL_SIZE);
         UfNode(int key, int scale, int uf_size=UF_INITIAL_SIZE, UfNode<T>* parent = nullptr);
 		~UfNode();
         int getUfSize() const;
@@ -30,19 +29,6 @@ class UfNode{
 
 };
 
-/*
-template<class T> 
-UfNode<T>::UfNode(T* data, UfNode<T>* parent, int uf_size) : data(data), parent(parent),uf_size(uf_size){
-}
-*/
-/*
-template<class T> 
-UfNode<T>::UfNode(T* data, UfNode<T>* parent, int uf_size){
-    this->data = new T();   // Will be called on Group();  
-    this->parent = parent;
-    this->uf_size = uf_size;
-}
-*/
 template<class T> 
 UfNode<T>::UfNode(int key, int scale, int uf_size, UfNode<T>* parent) :uf_size(uf_size), parent(parent)
 {
@@ -55,7 +41,6 @@ UfNode<T>::~UfNode()
     delete data;
     this->data = nullptr;
     this->parent = nullptr;
-    //delete parent;
 }
 
 template<class T> 
@@ -88,16 +73,4 @@ UfNode<T>* UfNode<T>::getParent()
     return this->parent;
 }
 
-
-/* Operators */
-/*
-template<class T> 
-bool UfNode<T>::operator==(const T& data) const 
-{
-    if(this->data == data) {
-        return true;
-    }
-    return false;
-}
-*/
 #endif 

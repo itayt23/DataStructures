@@ -8,7 +8,6 @@
 #include "library2.h"
 
 const int INITIAL_TOTAL_PLAYERS = 0;
-//const int INITIAL_LEVEL = 0;
 
 class PlayersManager{
         ChainHashTable* players_table;

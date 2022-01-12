@@ -40,6 +40,5 @@ class Player
         bool operator!=(const Player& player);
 
 	};
-    //std::ostream& operator<<(std::ostream& os, const Player& player);
 
 #endif

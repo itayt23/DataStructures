@@ -102,11 +102,6 @@ bool Player::operator!=(const Player& player){
     }
 
 }
-/*
-std::ostream& operator<<(std::ostream& os, const Player& player){
-    return os << player.getPlayerID() << " " << player.getPlayerLevel();
-}
-*/
 
 
 

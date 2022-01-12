@@ -13,9 +13,7 @@ class Group
 {
     int                         group_id;
     int                         group_size;
-    //int                         group_uf_size;  // for the union.
     RankTree<int>*              rank_group_players;
-    //RankNode<int>*            min_group_player;   
     
     public:
 
@@ -27,11 +25,9 @@ class Group
         int const getGroupID() const; 
         int getGroupSize() const;
         RankTree<int>* getGroupPlayersTree();
-        //RankNode<int>* getMinPlayer() const;
 
     /* Set functions */  
         void setGroupSize(int new_size);
-        //void setMinGroupPlayer(RankNode<int>* new_min_player);
         void setGroupPlayersTree(RankTree<int>* tree);
 
     /* Operators */

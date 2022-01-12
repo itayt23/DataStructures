@@ -16,7 +16,6 @@ class RankNode{
 	T *key;			// the key is the level
 	int height;
 	int players_amount;
-    //int score;
 	int scale;
     int players_amount_sub_tree;			// including the node itself
 	int* players_score_arr;					
@@ -279,7 +278,6 @@ void RankNode<T>::clearAll()	{
 	}
 }
 
-//TODO didnt update levelSUm x2....do i need? we make copies?
 template<class T> 
 RankNode<T>* RankNode<T>::copyAll(RankNode<T>* root, RankNode<T>* parent)
 {
@@ -461,7 +459,6 @@ void RankNode<T>::updateLLFeatures() {
 	int* A_score_arr_sub = this->getScoreArrSubTree();
 	int* B_score_arr_sub = this->right->getScoreArrSubTree();
 	int* B_score_arr = this->right->getScoreArr();
-	//int B_players_amount_sub = this->right->getPlayersAmountSubTree();
 	int* Ar_score_arr_sub = nullptr;
 	int Ar_players_amount_sub = 0;
 	int Br_players_amount_sub = 0;
@@ -540,7 +537,6 @@ void RankNode<T>::updateRRFeatures() {
 	int* A_score_arr_sub = this->getScoreArrSubTree();
 	int* B_score_arr_sub = this->left->getScoreArrSubTree();
 	int* B_score_arr = this->left->getScoreArr();
-	//int B_players_amount_sub = this->left->getPlayersAmountSubTree();
 	int* Al_score_arr_sub = nullptr;
 	int Al_players_amount_sub = 0;
 	int Br_players_amount_sub = 0;
@@ -960,12 +956,6 @@ RankNode<T>* RankNode<T>::removeNode(){
 			min_node_parent->left = this;
 			this->parent = min_node_parent;
 		}
-		//this->updateHeight();
-		//this->updateNodeFeatures();
-		//this->updateLevelSumSubTree();
-		//min_node_parent->updateHeight();
-		//min_node_parent->updateNodeFeatures();
-		//min_node_parent->updateLevelSumSubTree();
 		RankNode<T>* temp_iter = this;
 		while(temp_iter != nullptr)
 		{
@@ -1060,7 +1050,6 @@ RankNode<T>* RankNode<T>::searchMin(T* key_find)
 		}
 		else if( *(node_iterator->getKey()) > *key_find){
 			if(node_iterator->left == nullptr) return node_iterator;
-			//if(*(node_iterator->left->getKey()) < *key_find) return node_iterator;
 			node_iterator = node_iterator->left;
 		} else if( *(node_iterator->getKey()) < *key_find){
 			node_iterator = node_iterator->right;
@@ -1084,7 +1073,6 @@ RankNode<T>* RankNode<T>::searchMax(T* key_find)
 			node_iterator = node_iterator->left;
 		} else if( *(node_iterator->getKey()) < *key_find){
 			if(node_iterator->right == nullptr) return node_iterator;
-			//if(*(node_iterator->right->getKey()) > *key_find) return node_iterator;
 			node_iterator = node_iterator->right;
 		}
 	}
@@ -1122,27 +1110,6 @@ void RankNode<T>::searchAndUpdateAtInsert(T* key_find, int score)
 	}
 	return;
 }
-
-/*
-template<class T>
-void RankNode<T>::updateAtInsert(T* key_find, int score)
-{
-	RankNode<T>* node_iterator = this;
-	while(node_iterator != nullptr)
-	{
-		if(*key_find < *(node_iterator->getKey()))
-		{
-			node_iterator->updateNodeFeaturesAtInsert();
-			node_iterator = node_iterator->left;
-		}
-		else if(*key_find > *(node_iterator->getKey()))
-		{
-			node_iterator->updateNodeFeaturesAtInsert();
-			node_iterator = node_iterator->right;
-		}
-	}
-}*/
-
 
 template<class T>
 void RankNode<T>::searchAndUpdateAtRemove(T* key_find, int score)

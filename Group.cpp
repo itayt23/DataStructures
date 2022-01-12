@@ -7,9 +7,7 @@ Group::Group(int group_id, int scale, int group_size)
 {
     this->group_id = group_id;
     this->group_size = group_size;
-    //this->group_uf_size = UF_INITIAL_SIZE;
     this->rank_group_players = new RankTree<int>(scale); 
-    //this->min_group_player = nullptr;
 }
 
 Group::~Group(){

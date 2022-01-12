@@ -46,9 +46,8 @@ template<class T>
 RankTree<T>::RankTree(int scale) :root(nullptr), level_zero(nullptr){ 
 	this->scale = scale;
 	this->root_size = 0; 
-	}
+}
 
-//before change it was: level_zero(level_zero) {and than it put inside 1 it player amount}
 template<class T>
 RankTree<T>::RankTree(RankNode<T>* root, RankNode<T>* level_zero, int scale, int root_size) : root(root), level_zero(level_zero), scale(scale), root_size(root_size){}
 
@@ -82,7 +81,7 @@ RankNode<T>* RankTree<T>::getRootNode(){
 
 
 template<class T>
-RankTree<T>* RankTree<T>::copyTree(){ //TODO need fucking check the copy function is ugly as HELL!
+RankTree<T>* RankTree<T>::copyTree(){ //TODO: do i useing it at all?
 	return new RankTree<T>(this->root->copyAll(this->root, nullptr),this->level_zero->copyAll(this->level_zero, nullptr), this->scale, this->root_size);
 }
 
@@ -142,12 +141,8 @@ void RankTree<T>::insert(T level, int score){
 			this->root_size++;
 			RankNode<T>* node_inserted = this->root->search(temp_add);
 			node_inserted->updateLevelSumSubTreesAtInsert();
-			//this->root->searchAndUpdateAtInsert(temp_add, score);
-			//RankNode<T>* node_added = this->root->search(temp_add);
-			//node_added->updateNodeAtRemove(score); //imdoing it because insert and search updating him twice(insert at the constructor)
+			
 		}
-		//this->root->updateNodeFeatures();
-		//this->root->updateLevelSumSubTree();
 	}
 }
 
@@ -213,8 +208,6 @@ void RankTree<T>::remove(T key, int score){
 		{
 			this->root->searchAndUpdateAtRemove(temp_key, score);
 		}
-		//this->root->updateNodeFeatures();
-		//this->root->updateLevelSumSubTree();
 	}
 	if(temp_key != nullptr)
 	{
