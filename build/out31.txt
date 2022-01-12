@@ -236,7 +236,7 @@ RemovePlayer: SUCCESS
 MergeGroups: SUCCESS
 MergeGroups: SUCCESS
 GetPercentOfPlayersWithScoreInBounds: 0.00
-AverageHighestPlayerLevelByGroup: 1.54
+AverageHighestPlayerLevelByGroup: FAILURE
 RemovePlayer: SUCCESS
 GetPercentOfPlayersWithScoreInBounds: 5.56
 RemovePlayer: SUCCESS

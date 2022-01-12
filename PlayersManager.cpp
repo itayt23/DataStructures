@@ -342,6 +342,18 @@ StatusType PlayersManager::AverageHighestPlayerLevelByGroup(int GroupID, int m, 
         return SUCCESS;
     }
     RankTree<int>* group_tree = this->groups_uf->find(GroupID)->getGroupPlayersTree();
+    if(group_tree->getLevelZero() != nullptr && group_tree->getRootNode() != nullptr)
+    {
+        if(m > group_tree->getRootNode()->getPlayersAmountSubTree() + group_tree->getLevelZero()->getPlayersAmount()) return FAILURE;
+    }
+    else if(group_tree->getLevelZero() != nullptr && group_tree->getRootNode() == nullptr)
+    {
+        if(m > group_tree->getLevelZero()->getPlayersAmount()) return FAILURE;
+    }
+    else if(group_tree->getLevelZero() == nullptr && group_tree->getRootNode() != nullptr)
+    {
+        if(m > group_tree->getRootNode()->getPlayersAmountSubTree()) return FAILURE;
+    }
     //group_tree->printTree();
     if(group_tree->getRootNode() == nullptr)
     {

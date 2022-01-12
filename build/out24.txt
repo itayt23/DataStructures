@@ -186,7 +186,7 @@ MergeGroups: SUCCESS
 AddPlayer: FAILURE
 GetPercentOfPlayersWithScoreInBounds: 0.00
 RemovePlayer: SUCCESS
-AverageHighestPlayerLevelByGroup: 0.86
+AverageHighestPlayerLevelByGroup: FAILURE
 IncreasePlayerIDLevel: SUCCESS
 IncreasePlayerIDLevel: SUCCESS
 AverageHighestPlayerLevelByGroup: INVALID_INPUT
