@@ -7,21 +7,14 @@
 
 template<class T> 
 class UnionFind {
-    UfNode<T>**     uf_group_arr;
-    int             uf_group_arr_size;
+    UfNode<T>**     uf_group_arr;       // number of groups sized array with each cell pointing to its unique group
+    int             uf_group_arr_size;  // the size of the array, which is set on the startup with the number of groups
+
     void shrinkPath(UfNode<T>* root, UfNode<T>* origin);
 	public:
 		UnionFind(int k, int scale);
 		~UnionFind();
         void unionGroups(const int group_id1, const int group_id2);
-        //UfNode<T>* find(const int group_id);
-
-        /**
-         * @brief takes a group ID and returns a copy (why a copy and not a pointer???) of the representative (the root) of those in the set with the @group_id
-         * 
-         * @param group_id - wanted group ID
-         * @return T 
-         */
         T* find(const int group_id);
         UfNode<T>* getRoot(UfNode<T>* data);
         T* getGroup(const int group_id);
@@ -30,6 +23,13 @@ class UnionFind {
 		class DoesntExist {};
 };
 
+/**
+ * @brief Construct a new Union Find< T>:: Union Find object
+ * 
+ * @tparam T 
+ * @param k 
+ * @param scale 
+ */
 template<class T>
 UnionFind<T>::UnionFind(int k, int scale)
 {
@@ -41,6 +41,11 @@ UnionFind<T>::UnionFind(int k, int scale)
     }
 }
 
+/**
+ * @brief Destroy the Union Find< T>:: Union Find object
+ * 
+ * @tparam T 
+ */
 template<class T>
 UnionFind<T>::~UnionFind()
 {
@@ -53,6 +58,13 @@ UnionFind<T>::~UnionFind()
     this->uf_group_arr = nullptr;
 }
 
+/**
+ * @brief union to sets of groups
+ * 
+ * @tparam T 
+ * @param group_id1 
+ * @param group_id2 
+ */
 template<class T>
 void UnionFind<T>::unionGroups(const int group_id1, const int group_id2)
 {
@@ -60,12 +72,11 @@ void UnionFind<T>::unionGroups(const int group_id1, const int group_id2)
     UfNode<T>* group2 = (this->uf_group_arr)[group_id2];
     UfNode<T>* root_group1 = getRoot(group1);
     UfNode<T>* root_group2 = getRoot(group2);
-    if(*(root_group1->getData()) == *(root_group2->getData())) return; //the groups already toghter //but not sure if i need it!
+    if(*(root_group1->getData()) == *(root_group2->getData())) return;
     if(root_group1->getUfSize() < root_group2->getUfSize())
     {
         root_group1->setParent(root_group2);
         root_group2->setUfSize(root_group2->getUfSize() + root_group1->getUfSize());
-        //delete group1->getData();
 
     }
     else if(root_group1->getUfSize() == root_group2->getUfSize())
@@ -74,22 +85,26 @@ void UnionFind<T>::unionGroups(const int group_id1, const int group_id2)
         {
             root_group2->setParent(root_group1);
             root_group1->setUfSize(root_group2->getUfSize() + root_group1->getUfSize());
-            //delete group2->getData();
         }
         else
         {
             root_group1->setParent(root_group2);
             root_group2->setUfSize(root_group2->getUfSize() + root_group1->getUfSize());
-            //delete group1->getData();
         }
     }
     else
     {
         root_group2->setParent(root_group1);
         root_group1->setUfSize(root_group2->getUfSize() + root_group1->getUfSize());
-        //delete group2->getData();
     }
 }
+/**
+ * @brief getting the represntive groups off the set
+ * 
+ * @tparam T 
+ * @param data 
+ * @return the represntive groups off the set
+ */
 template<class T>
 UfNode<T>* UnionFind<T>::getRoot(UfNode<T>* data)
 {
@@ -107,7 +122,13 @@ T* UnionFind<T>::getGroup(const int group_id)
     return (this->uf_group_arr)[group_id]->getData();
 }
 
-
+/**
+ * @brief finding the represntive group of the whole set
+ * 
+ * @tparam T 
+ * @param group_id 
+ * @return the represntive group of the whole set
+ */
 template<class T>
 T* UnionFind<T>::find(const int group_id)
 {
@@ -121,6 +142,13 @@ T* UnionFind<T>::find(const int group_id)
     return iter_node->getData();
 }
 
+/**
+ * @brief shrinking the path from specific group to his represntive group.
+ * 
+ * @tparam T 
+ * @param root 
+ * @param origin 
+ */
 template<class T>
 void UnionFind<T>::shrinkPath(UfNode<T>* root, UfNode<T>* origin)
 {

@@ -31,24 +31,9 @@ ChainHashTable::~ChainHashTable(){
     this->table = nullptr;
 }
 
-/*
-ChainHashTable::~ChainHashTable(){
-    for(int i=0; i < this->table_size ; i++){
-        table[i]->clearChain();
-        //delete table[i];
-        table[i] = nullptr;     // setting the deleted to nullptr is standard practive
-    }
-    //delete[] *table;
-    if(this->table != nullptr)
-        delete[] table;
-    this->table=nullptr;        // setting the deleted to nullptr is standard practive
-}*/
-
 PlayerNode** ChainHashTable::getTable(){
     return this->table;
 }
-
-
 
 /* Auxiliary private functions -------------------------------------------------------------------------------------- */
 

@@ -3,8 +3,8 @@
 class PlayerNode
 {
 private:
-    Player* player;
-    PlayerNode* next;
+    Player* player;     // a pointer to the Player
+    PlayerNode* next;   // a pointer to the next PlayerNode.
 public:
     PlayerNode();
     PlayerNode(Player* player_t);

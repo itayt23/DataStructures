@@ -1,5 +1,4 @@
 #include "PlayerNode.h"
-//#include "Player.h"
 
 PlayerNode::PlayerNode()
 {
@@ -8,7 +7,7 @@ PlayerNode::PlayerNode()
 }
 
 PlayerNode::PlayerNode(Player* player_t){
-    this->player = new Player(player_t->getPlayerID(), player_t->getPlayerGroupID(), player_t->getPlayerScore(), player_t->getPlayerLevel());   // calling copy c'tor, player is pointing to the newly created obj.
+    this->player = new Player(player_t->getPlayerID(), player_t->getPlayerGroupID(), player_t->getPlayerScore(), player_t->getPlayerLevel()); 
     this->next = nullptr;
 }
 
@@ -16,26 +15,7 @@ PlayerNode::~PlayerNode(){
     delete this->player;
     this->player = nullptr;
     this->next = nullptr;
-    //this->clearChain();
 }
-
-/*
-void PlayerNode::clearChain()
-{
-    PlayerNode* node = this;
-    PlayerNode* next_node = this;
-    while(next_node != nullptr)
-    {
-        node = next_node;
-        next_node = node->getNext();
-        delete node->getPlayer();
-        node->setPlayer(nullptr);
-        node->setNext(nullptr);
-        node = nullptr;
-        delete node;
-    }
-    //delete node;
-}*/
 
 void PlayerNode::setPlayer(Player* player)
 {

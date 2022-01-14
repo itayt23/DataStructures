@@ -53,8 +53,6 @@ StatusType AverageHighestPlayerLevelByGroup(void *DS, int GroupID, int m, double
 }
 
 void Quit(void** DS){
-    //PlayersManager* to_destroy = static_cast<PlayersManager*>(*DS);
-    //to_destroy-> Quit();
     delete (PlayersManager*)(*DS);
     *DS = NULL;
 }

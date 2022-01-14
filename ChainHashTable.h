@@ -11,9 +11,9 @@ typedef enum { HT_ALREADY_EXISTS, HT_DOESNT_EXIST, HT_SUCCESS} HT_status;
 class ChainHashTable
 {
 private:
-     PlayerNode** table;
-     int table_size;
-     int capacity;  
+     PlayerNode** table;    // an array of PlayerNode pointers containing the saved Player's information
+     int table_size;        // the current size of the table, adjusted to the load factor
+     int capacity;          // number of cells in @table containing data.
 
 /* Auxiliary private functionse */
     int calculateHash(int key) const;

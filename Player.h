@@ -7,10 +7,10 @@ const int INITIAL_LEVEL = 0;
 class Player
 {   
     private:
-        int player_id;
-        int level;
-        int score;
-        int player_groupID;
+        int player_id;          // the player's unique ID
+        int level;              // the player's level
+        int score;              // the player's score
+        int player_groupID;     // the player's affiliated group
 	public:
         Player(); 
     	Player(int player_id, int GroupID, int score, int level = INITIAL_LEVEL);
@@ -32,7 +32,6 @@ class Player
         bool differentID(Player& p1);
 
         /* Operators */
-        //! NOTE: The sorting is done by the level. 
         bool operator== (const Player& player) const;
         bool operator> (const Player& player) const;
         bool operator< (const Player& player) const;

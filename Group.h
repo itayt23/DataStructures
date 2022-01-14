@@ -11,9 +11,9 @@ const int EMPTY_GROUP_SIZE = 0;
 
 class Group
 {
-    int                         group_id;
-    int                         group_size;
-    RankTree<int>*              rank_group_players;
+    int                         group_id;           //the uniqe groupID
+    int                         group_size;         //the group size of players
+    RankTree<int>*              rank_group_players; //pointer to the rank tree
     
     public:
 

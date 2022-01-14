@@ -18,8 +18,6 @@ Player::Player(const Player& to_copy){
     this->score = to_copy.score;
 }
 
-//Player::~Player() {} 
-
 /* Get functions----------------------------------------------------------------------------------------------------- */
 int Player::getPlayerID() const {
     return this->player_id;
@@ -66,7 +64,6 @@ bool Player::operator==(const Player& player) const {
     return false;
 }
 
-//! NOTE: < is <= when using levels - meaning that the matching levels will be sorted to the left ! Note: sorting is done by the levels
 bool Player::operator<(const Player& player) const {
     if(this->level < player.level) {
         return true;

@@ -8,9 +8,9 @@
 const int UF_INITIAL_SIZE = 1;
 template<class T> 
 class UfNode{
-	T*              data;
-	int             uf_size;
-	UfNode<T>*      parent;
+	T*              data;       // a pointer to the data, in our case - group
+	int             uf_size;    // number of groups within the union
+	UfNode<T>*      parent;     // a pointer to the parent union find node
 	public:
         UfNode(int key, int scale, int uf_size=UF_INITIAL_SIZE, UfNode<T>* parent = nullptr);
 		~UfNode();
@@ -43,24 +43,48 @@ UfNode<T>::~UfNode()
     this->parent = nullptr;
 }
 
+/**
+ * @brief get the size of all the uNIongroups with the same representive.
+ * 
+ * @tparam T 
+ * @return the size of the union groups
+ */
 template<class T> 
 int UfNode<T>::getUfSize() const
 {
     return this->uf_size;
 }
 
+/**
+ * @brief setting the union groups size
+ * 
+ * @tparam T 
+ * @param size 
+ */
 template<class T> 
 void UfNode<T>::setUfSize(int size)
 {
     this->uf_size = size;
 }
 
+/**
+ * @brief get the data this node is restoring(in our case is group)
+ * 
+ * @tparam T 
+ * @return T* 
+ */
 template<class T> 
 T* UfNode<T>::getData() 
 {
     return (this->data);
 }
 
+/**
+ * @brief set pointer to the parent UFgroup
+ * 
+ * @tparam T 
+ * @param parent 
+ */
 template<class T> 
 void UfNode<T>::setParent(UfNode<T>* parent) 
 {

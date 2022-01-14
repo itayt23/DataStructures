@@ -14,7 +14,6 @@ Group::~Group(){
     if(this->rank_group_players != nullptr)
     {
         delete this->rank_group_players;
-        //this->rank_group_players->clearTree();
         this->rank_group_players = nullptr;
     }    
 }
@@ -23,7 +22,7 @@ Group::Group(Group& group)
 {
     this->group_id = group.group_id;
     this->group_size = group.group_size;
-    this->rank_group_players = group.getGroupPlayersTree()->copyTree();  // TODO: this is not a copy but an assignment. A place for bugs. 
+    this->rank_group_players = group.getGroupPlayersTree()->copyTree(); 
 }
 
 /* Get functions */
@@ -50,26 +49,12 @@ void Group::setGroupSize(int new_size){
 /**
  * @brief ASSIGNS the given pointer, does not copy the whole content!
  * 
- * @param new_min_player 
- */
- /*
-void Group::setMinGroupPlayer(RankNode<int>* new_min_player){
-    this->min_group_player = min_group_player;    // this an assignment and not a copy of the value
-}
-*/
-
-
-/**
- * @brief ASSIGNS the given pointer, does not copy the whole content!
- * 
  * @param tree 
  */
 void Group::setGroupPlayersTree(RankTree<int>* tree)
 {
     this->rank_group_players = tree;
 }
-
-
 
 
 // OPERATORS:

@@ -9,10 +9,10 @@
 
 template<class T> 
 class RankTree {	
-	RankNode<T>* root;
-    RankNode<T>* level_zero;
-	int 		scale;
-	int 		root_size;
+	RankNode<T>* root;			// the tree's root which contains nodes with level != 0 only
+    RankNode<T>* level_zero;	// node that contains the zero level
+	int 		scale;			// score, is set on startup
+	int 		root_size;		// number of nodes within the tree
 	public:
 		RankTree(int scale);
 		RankTree(RankNode<T>* root, RankNode<T>* level_zero, int scale, int root_size);
@@ -32,10 +32,6 @@ class RankTree {
 		void inOrder();	 
 		void inOrderReverse();
 		void clearTree();
-		void printTree_rec(const std::string &prefix, RankNode<T> *node, bool isLeft);
-		void printTree();
-		void printZeroTree_rec(const std::string &prefix, RankNode<T> *node, bool isLeft);
-		void printZeroTree();
 		int getScale() const;
 		class Empty {};
 		class NodeAlreadyExists {};
@@ -81,7 +77,7 @@ RankNode<T>* RankTree<T>::getRootNode(){
 
 
 template<class T>
-RankTree<T>* RankTree<T>::copyTree(){ //TODO: do i useing it at all?
+RankTree<T>* RankTree<T>::copyTree(){
 	return new RankTree<T>(this->root->copyAll(this->root, nullptr),this->level_zero->copyAll(this->level_zero, nullptr), this->scale, this->root_size);
 }
 
@@ -224,7 +220,7 @@ void RankTree<T>::remove(T key, int score){
 }
 
 template<class T>
-void RankTree<T>::rankMin(int level, int score, int* total_players, int* players_in_score) //TODO is it problem to work with pointers? check level_min!
+void RankTree<T>::rankMin(int level, int score, int* total_players, int* players_in_score)
 {
 	
 	RankNode<T>* level_node = this->root->searchMin(&level);
@@ -238,7 +234,7 @@ void RankTree<T>::rankMin(int level, int score, int* total_players, int* players
 }
 
 template<class T>
-void RankTree<T>::rankMax(int level, int score, int* total_players, int* players_in_score) //TODO is it problem to work with pointers? check level_min!
+void RankTree<T>::rankMax(int level, int score, int* total_players, int* players_in_score)
 {
 	RankNode<T>* level_node = this->root->searchMax(&level);
 	if(level_node == nullptr) return;
@@ -317,57 +313,6 @@ int RankTree<T>::getRootSize()
 {
 	return this->root_size;
 }
-
-template <class T>
-void RankTree<T>::printTree() {
-    std::cout << "\n"
-              << std::endl;
-    this->printTree_rec("", this->getRootNode(), false);
-    std::cout << "\n"
-              << std::endl;
-}
-
-template <class T>
-void RankTree<T>::printTree_rec(const std::string &prefix, RankNode<T> *node, bool isLeft) {
-    if (node != nullptr) {
-        std::cout << prefix;
-
-        std::cout << (isLeft ? "├──────" : "└──────");
-
-        //         print the value of the node
-        std::cout << "id:" << *(node->getKey()) << " Ps:" << node->getPlayersAmountSubTree() << " Ls:" <<node->getLevelsSumSubTree() << " score Sub:" <<node->getScoreArrSubTree()[1] << " score:" <<node->getScoreArr()[1]<< std::endl;
-
-        //         enter the next tree level - left and right branch
-        printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getRightSon(), true);
-        printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getLeftSon(), false);
-    }
-}
-
-template <class T>
-void RankTree<T>::printZeroTree() {
-    std::cout << "\n"
-              << std::endl;
-    this->printZeroTree_rec("", this->getLevelZero(), false);
-    std::cout << "\n"
-              << std::endl;
-}
-
-template <class T>
-void RankTree<T>::printZeroTree_rec(const std::string &prefix, RankNode<T> *node, bool isLeft) {
-    if (node != nullptr) {
-        std::cout << prefix;
-
-        std::cout << (isLeft ? "├──────" : "└──────");
-
-        //         print the value of the node
-        std::cout << "Pla:" << (node->getPlayersAmount()) << " Score x:" << (node->getScoreArr()[1]) <<std::endl;
-
-        //         enter the next tree level - left and right branch
-        printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getRightSon(), true);
-        printTree_rec(prefix + (isLeft ? "│       " : "        "), node->getLeftSon(), false);
-    }
-}
-
 
 
 #endif

@@ -19,12 +19,14 @@ class RankNode{
 	int scale;
     int players_amount_sub_tree;			// including the node itself
 	int* players_score_arr;					
-    int* players_score_arr_sub_tree;
+    int* players_score_arr_sub_tree;		// including the node itself
 	int level_sum;
-	int levels_sum_sub_tree;
+	int levels_sum_sub_tree;				// including the node itself
 	RankNode* parent;
 	RankNode* left;
 	RankNode* right;
+
+
 	RankNode<T>* lrRotate();
 	RankNode<T>* llRotate();
 	RankNode<T>* rlRotate();
@@ -396,7 +398,6 @@ void RankNode<T>::updateNodeFeatures() {
     	{
         	this->getScoreArrSubTree()[i] = this->getScoreArr()[i];
     	}
-		//this->setScoreArrSubTree(this->copyScoreArr());
 		this->setPlayersAmountSubTree(this->getPlayersAmount());
 	}
 	else if(this->hasRightSon() && !(this->hasLeftSon()))
@@ -486,7 +487,6 @@ void RankNode<T>::updateLLFeatures() {
 		{
 			B_score_arr_sub[i] = B_score_arr[i];
 		}
-		//this->right->setScoreArrSubTree(this->right->copyScoreArr());
 		this->right->setLevelSumSubTree(this->right->getLevelSum());
 	}
 	else if(this->right->hasRightSon() && !(this->right->hasLeftSon()))
@@ -568,7 +568,6 @@ void RankNode<T>::updateRRFeatures() {
 		{
 			B_score_arr_sub[i] = B_score_arr[i];
 		}
-		//this->left->setScoreArrSubTree(this->left->copyScoreArr());
 		this->left->setLevelSumSubTree(this->left->getLevelSum());
 	}
 	else if(this->left->hasRightSon() && !(this->left->hasLeftSon()))

@@ -389,13 +389,6 @@ StatusType PlayersManager::AverageHighestPlayerLevelByGroup(int GroupID, int m, 
     return SUCCESS;
 }
 
-void PlayersManager::Quit()
-{
-    this->all_players_tree->clearTree();
-    delete this->players_table;
-    delete this->groups_uf;
-}
-
 StatusType PlayersManager::GetPlayersBound(int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers)
 {
     return SUCCESS;
@@ -570,7 +563,6 @@ static void arrayToTree(RankNode<int> *node, RankNode<int> **merged_array, int *
     {
         node->getScoreArr()[i] = merged_array[*index]->getScoreArr()[i];
     }
-    // node->setScoreArr(merged_array[*index]->copyScoreArr());
     node->setNodeLevelSum(merged_array[*index]->getLevelSum());
     node->updateNodeFeatures();
     node->updateLevelSumSubTree();
@@ -581,6 +573,13 @@ static void arrayToTree(RankNode<int> *node, RankNode<int> **merged_array, int *
     node->updateLevelSumSubTree();
 }
 
+/**
+ * @brief updating the levelZero node from merging the to levelZeros sending to her.
+ * 
+ * @param level_zero_final 
+ * @param group_tree1_level_zero 
+ * @param group_tree2_level_zero 
+ */
 static void updateLevelZero(RankNode<int> *level_zero_final, RankNode<int> *group_tree1_level_zero, RankNode<int> *group_tree2_level_zero)
 {
     if(group_tree1_level_zero == nullptr && group_tree2_level_zero == nullptr)
@@ -618,7 +617,13 @@ static void updateLevelZero(RankNode<int> *level_zero_final, RankNode<int> *grou
         level_zero_final->setPlayersAmountSubTree(group_tree1_level_zero->getPlayersAmountSubTree() + group_tree2_level_zero->getPlayersAmountSubTree());
     }
 }
-
+/**
+ * @brief Get the Average Highest Level object - the heart of the algorithm. searching for the m highest levels player in the rank tree.
+ * 
+ * @param iter_node 
+ * @param m 
+ * @return double 
+ */
 static double getAverageHighestLevel(RankNode<int> *iter_node, int m)
 {
     int temp_size = m;
