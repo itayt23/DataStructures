@@ -14,6 +14,25 @@ ChainHashTable::ChainHashTable(int table_size_t)
 }
 
 ChainHashTable::~ChainHashTable(){
+    PlayerNode* iterator = nullptr; // default
+    PlayerNode* iterator_next_backup = nullptr; // default;
+    for(int i=0; i < this->table_size ; i++){   // iterate over every cell in the array
+        iterator = this->table[i];
+        while(iterator != nullptr){ // iterate over every node in the list
+            iterator_next_backup = iterator->getNext();
+            delete iterator;
+            iterator = iterator_next_backup;
+        }
+        this->table[i]=nullptr;
+    }
+    this->table_size = 0;
+    this->capacity = 0;
+    delete[] this->table;
+    this->table = nullptr;
+}
+
+/*
+ChainHashTable::~ChainHashTable(){
     for(int i=0; i < this->table_size ; i++){
         table[i]->clearChain();
         //delete table[i];
@@ -23,7 +42,7 @@ ChainHashTable::~ChainHashTable(){
     if(this->table != nullptr)
         delete[] table;
     this->table=nullptr;        // setting the deleted to nullptr is standard practive
-}
+}*/
 
 PlayerNode** ChainHashTable::getTable(){
     return this->table;
@@ -53,7 +72,7 @@ bool ChainHashTable::existsAt(int index, int key) const{
 
 void ChainHashTable::upsize(){
     //prolog
-    int new_size = this->table_size * GROW_FACTOR;
+    int new_size = this->table_size * GROW_SHRINK_FACTOR;
     int old_size = this->table_size;
     PlayerNode** new_table = new PlayerNode*[new_size];
     PlayerNode** old_table = this->table;
@@ -83,6 +102,38 @@ void ChainHashTable::upsize(){
     delete[] old_table;
     return;
 } 
+
+void ChainHashTable::downsize(){
+    if(this->table_size == DEFAULT_SIZE){   // smallest array will be 10
+        return;
+    }
+    int new_size = this->table_size / GROW_SHRINK_FACTOR;
+    int old_size = this->table_size;
+    PlayerNode** new_table = new PlayerNode*[new_size];
+    PlayerNode** old_table = this->table;
+    PlayerNode* iterator = nullptr; // std practive to nullify the ptr.
+    this->capacity = 0; // we insert the old values and that will grow the capacity to it's former size. 
+    this->table_size = new_size;
+    // resetting up the new array
+    for(int i=0; i < new_size; i++){
+        new_table[i] = nullptr;
+    }
+    this->table = new_table;
+    // settling the old cells
+    for(int i=0; i < old_size; i++){
+        iterator = old_table[i];      // takes the head of the chain
+        while(iterator != nullptr){
+            this->insertHT(iterator->getPlayer());      // assure that the new table is already updated for hash index calculations 
+            iterator=iterator->getNext();
+        }
+    }
+    for(int i=0; i < old_size ; i++){
+        delete old_table[i];
+        old_table[i] = nullptr;   
+    }
+    delete[] old_table;
+    return;
+}
 
 
 /* Auxliary public functions ---------------------------------------------------------------------------------------- */
@@ -117,7 +168,7 @@ HT_status ChainHashTable::insertHT(Player* new_player){
         table[HT_index] = new_node;
     }
     capacity++;
-    int overload_factor = this->table_size * GROW_FACTOR;   // this is the only trigger for upsizing.
+    int overload_factor = this->table_size * GROW_SHRINK_FACTOR;   // this is the only trigger for upsizing.
     if(capacity == overload_factor){
         this->upsize();
     }
@@ -133,28 +184,31 @@ HT_status ChainHashTable::insertHT(Player* new_player){
  */
 HT_status ChainHashTable::deleteHT(int key){
     int HT_index = calculateHash(key);
-    if( existsAt(HT_index, key) == false ){
+    if( alreadyExistsInList(HT_index, key) == false ){
         return HT_DOESNT_EXIST;     // do nothing, target does not exist in the table
     } else {
         PlayerNode* iterator = table[HT_index];
         PlayerNode* prev_iterator = nullptr;
-        while(iterator != nullptr){
+        while(iterator != nullptr){ // iterate over the list
             if(iterator->getPlayer()->getPlayerID() == key){
                 if(prev_iterator == nullptr){   // the first node is the target
                     table[HT_index] = iterator->getNext();  // update the pointers
                     delete iterator;    // delete the node that is pointed by the iterator
-                    } else {
+                } else {
                     prev_iterator->setNext(iterator->getNext());
                     delete iterator;
                 }
                 capacity--;
-                return HT_SUCCESS;
+                if( this->capacity == (this->table_size / 4) ){    // downsize trigger
+                    this->downsize();
+                }
+                break;
             }
             prev_iterator = iterator;
             iterator = iterator->getNext();
         }
     }
-    return HT_SUCCESS;  // we shall never get here, this is here just for the compiler to shut up
+    return HT_SUCCESS;
 }
 
 /**
@@ -179,3 +233,16 @@ Player* ChainHashTable::findHT(int key) const{
     return nullptr; // we shall never get here, this is just for the compiler to shut up
 }
 
+bool ChainHashTable::alreadyExistsInList(int index, int key) const{
+    PlayerNode* iterator = this->table[index];
+    if(iterator == nullptr){
+        return false;
+    }
+    while(iterator != nullptr){
+        if(iterator->getPlayer()->getPlayerID() == key){
+            return true;    // found.
+        }
+        iterator = iterator->getNext();
+    }
+    return false; // was not found.
+}

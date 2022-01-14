@@ -19,6 +19,7 @@ PlayerNode::~PlayerNode(){
     //this->clearChain();
 }
 
+/*
 void PlayerNode::clearChain()
 {
     PlayerNode* node = this;
@@ -34,7 +35,7 @@ void PlayerNode::clearChain()
         delete node;
     }
     //delete node;
-}
+}*/
 
 void PlayerNode::setPlayer(Player* player)
 {

@@ -3,7 +3,7 @@
 
 const int DEFAULT_SIZE = 10;
 const int INITIAL_CAPACITY = 0;
-const int GROW_FACTOR = 2;
+const int GROW_SHRINK_FACTOR = 2;
 
 typedef enum { HT_ALREADY_EXISTS, HT_DOESNT_EXIST, HT_SUCCESS} HT_status;
 
@@ -17,8 +17,10 @@ private:
 
 /* Auxiliary private functionse */
     int calculateHash(int key) const;
+    bool alreadyExistsInList(int index, int key) const;
     bool existsAt(int index, int key) const;
     void upsize();
+    void downsize();
     
 public:
     ChainHashTable(int table_size_t = DEFAULT_SIZE);

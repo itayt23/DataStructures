@@ -129,7 +129,6 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2)
         delete[] group1_array;
         delete[] group2_array;
         delete[] merged_array;
-        //delete[] merged_array_final;
     }
     catch (AllocationError &e)
     {
