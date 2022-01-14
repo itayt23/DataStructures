@@ -78,93 +78,93 @@ include CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/Player.cpp.obj: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/Player.cpp.obj: ../Player.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/game.dir/Player.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\Player.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Player.cpp"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\Player.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Player.cpp"
 
 CMakeFiles/game.dir/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/game.dir/Player.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Player.cpp" > CMakeFiles\game.dir\Player.cpp.i
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Player.cpp" > CMakeFiles\game.dir\Player.cpp.i
 
 CMakeFiles/game.dir/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game.dir/Player.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Player.cpp" -o CMakeFiles\game.dir\Player.cpp.s
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Player.cpp" -o CMakeFiles\game.dir\Player.cpp.s
 
 CMakeFiles/game.dir/ChainHashTable.cpp.obj: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/ChainHashTable.cpp.obj: ../ChainHashTable.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/game.dir/ChainHashTable.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\ChainHashTable.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\ChainHashTable.cpp"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\ChainHashTable.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\ChainHashTable.cpp"
 
 CMakeFiles/game.dir/ChainHashTable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/game.dir/ChainHashTable.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\ChainHashTable.cpp" > CMakeFiles\game.dir\ChainHashTable.cpp.i
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\ChainHashTable.cpp" > CMakeFiles\game.dir\ChainHashTable.cpp.i
 
 CMakeFiles/game.dir/ChainHashTable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game.dir/ChainHashTable.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\ChainHashTable.cpp" -o CMakeFiles\game.dir\ChainHashTable.cpp.s
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\ChainHashTable.cpp" -o CMakeFiles\game.dir\ChainHashTable.cpp.s
 
 CMakeFiles/game.dir/PlayerNode.cpp.obj: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/PlayerNode.cpp.obj: ../PlayerNode.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/game.dir/PlayerNode.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\PlayerNode.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayerNode.cpp"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\PlayerNode.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayerNode.cpp"
 
 CMakeFiles/game.dir/PlayerNode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/game.dir/PlayerNode.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayerNode.cpp" > CMakeFiles\game.dir\PlayerNode.cpp.i
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayerNode.cpp" > CMakeFiles\game.dir\PlayerNode.cpp.i
 
 CMakeFiles/game.dir/PlayerNode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game.dir/PlayerNode.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayerNode.cpp" -o CMakeFiles\game.dir\PlayerNode.cpp.s
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayerNode.cpp" -o CMakeFiles\game.dir\PlayerNode.cpp.s
 
 CMakeFiles/game.dir/library2.cpp.obj: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/library2.cpp.obj: ../library2.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/game.dir/library2.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\library2.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\library2.cpp"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\library2.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\library2.cpp"
 
 CMakeFiles/game.dir/library2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/game.dir/library2.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\library2.cpp" > CMakeFiles\game.dir\library2.cpp.i
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\library2.cpp" > CMakeFiles\game.dir\library2.cpp.i
 
 CMakeFiles/game.dir/library2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game.dir/library2.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\library2.cpp" -o CMakeFiles\game.dir\library2.cpp.s
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\library2.cpp" -o CMakeFiles\game.dir\library2.cpp.s
 
 CMakeFiles/game.dir/PlayersManager.cpp.obj: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/PlayersManager.cpp.obj: ../PlayersManager.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/game.dir/PlayersManager.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\PlayersManager.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayersManager.cpp"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\PlayersManager.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayersManager.cpp"
 
 CMakeFiles/game.dir/PlayersManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/game.dir/PlayersManager.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayersManager.cpp" > CMakeFiles\game.dir\PlayersManager.cpp.i
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayersManager.cpp" > CMakeFiles\game.dir\PlayersManager.cpp.i
 
 CMakeFiles/game.dir/PlayersManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game.dir/PlayersManager.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayersManager.cpp" -o CMakeFiles\game.dir\PlayersManager.cpp.s
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\PlayersManager.cpp" -o CMakeFiles\game.dir\PlayersManager.cpp.s
 
 CMakeFiles/game.dir/Group.cpp.obj: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/Group.cpp.obj: ../Group.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/game.dir/Group.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\Group.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Group.cpp"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\Group.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Group.cpp"
 
 CMakeFiles/game.dir/Group.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/game.dir/Group.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Group.cpp" > CMakeFiles\game.dir\Group.cpp.i
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Group.cpp" > CMakeFiles\game.dir\Group.cpp.i
 
 CMakeFiles/game.dir/Group.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game.dir/Group.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Group.cpp" -o CMakeFiles\game.dir\Group.cpp.s
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\Group.cpp" -o CMakeFiles\game.dir\Group.cpp.s
 
 CMakeFiles/game.dir/main2.cpp.obj: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/main2.cpp.obj: ../main2.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/game.dir/main2.cpp.obj"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\main2.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\main2.cpp"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game.dir\main2.cpp.obj -c "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\main2.cpp"
 
 CMakeFiles/game.dir/main2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/game.dir/main2.cpp.i"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\main2.cpp" > CMakeFiles\game.dir\main2.cpp.i
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\main2.cpp" > CMakeFiles\game.dir\main2.cpp.i
 
 CMakeFiles/game.dir/main2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game.dir/main2.cpp.s"
-	C:\TDM-GCC-64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\main2.cpp" -o CMakeFiles\game.dir\main2.cpp.s
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Itay\OneDrive\OneDrive - Technion\Documents\computer science\Semesters\Semester 4\DataStructure\Assignments\Wet2_debugg\main2.cpp" -o CMakeFiles\game.dir\main2.cpp.s
 
 # Object files for target game
 game_OBJECTS = \

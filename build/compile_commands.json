@@ -1,37 +1,37 @@
 [
 {
   "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\Player.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\Player.cpp\"",
+  "command": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\Player.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\Player.cpp\"",
   "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Player.cpp"
 },
 {
   "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\ChainHashTable.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\ChainHashTable.cpp\"",
+  "command": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\ChainHashTable.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\ChainHashTable.cpp\"",
   "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/ChainHashTable.cpp"
 },
 {
   "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\PlayerNode.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\PlayerNode.cpp\"",
+  "command": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\PlayerNode.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\PlayerNode.cpp\"",
   "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayerNode.cpp"
 },
 {
   "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\library2.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\library2.cpp\"",
+  "command": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\library2.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\library2.cpp\"",
   "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/library2.cpp"
 },
 {
   "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\PlayersManager.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\PlayersManager.cpp\"",
+  "command": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\PlayersManager.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\PlayersManager.cpp\"",
   "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/PlayersManager.cpp"
 },
 {
   "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\Group.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\Group.cpp\"",
+  "command": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\Group.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\Group.cpp\"",
   "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/Group.cpp"
 },
 {
   "directory": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\main2.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\main2.cpp\"",
+  "command": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++11 -o CMakeFiles\\game.dir\\main2.cpp.obj -c \"C:\\Users\\Itay\\OneDrive\\OneDrive - Technion\\Documents\\computer science\\Semesters\\Semester 4\\DataStructure\\Assignments\\Wet2_debugg\\main2.cpp\"",
   "file": "C:/Users/Itay/OneDrive/OneDrive - Technion/Documents/computer science/Semesters/Semester 4/DataStructure/Assignments/Wet2_debugg/main2.cpp"
 }
 ]

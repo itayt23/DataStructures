@@ -108,6 +108,7 @@ void RankTree<T>::insert(T level, int score){
 			    delete temp_add;
 			    throw e; // throw std::bad_alloc
 			}
+			return;
 		}
         else // the levelzero node exist!
         {
@@ -141,8 +142,14 @@ void RankTree<T>::insert(T level, int score){
 			this->root_size++;
 			RankNode<T>* node_inserted = this->root->search(temp_add);
 			node_inserted->updateLevelSumSubTreesAtInsert();
+			return;
 			
 		}
+	}
+	if(temp_add != nullptr)
+	{
+		delete temp_add;
+		temp_add = nullptr;
 	}
 }
 

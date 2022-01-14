@@ -13,10 +13,32 @@ PlayerNode::PlayerNode(Player* player_t){
 }
 
 PlayerNode::~PlayerNode(){
-    if(player != nullptr)
-        delete player;
+    delete player;
     this->player = nullptr;
-    this->next = nullptr;
+    //this->next = nullptr;
+    //this->clearChain();
+}
+
+void PlayerNode::clearChain()
+{
+    PlayerNode* node = this;
+    PlayerNode* next_node = this;
+    while(next_node != nullptr)
+    {
+        node = next_node;
+        next_node = node->getNext();
+        delete node->getPlayer();
+        node->setPlayer(nullptr);
+        node->setNext(nullptr);
+        node = nullptr;
+        delete node;
+    }
+    //delete node;
+}
+
+void PlayerNode::setPlayer(Player* player)
+{
+    this->player = player;
 }
 
 Player* PlayerNode::getPlayer() const{

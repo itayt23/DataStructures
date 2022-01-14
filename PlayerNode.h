@@ -12,6 +12,8 @@ public:
     Player* getPlayer() const;
     PlayerNode* getNext() const;
     void setNext(PlayerNode* new_next);
+    void clearChain();
+    void setPlayer(Player* player);
 };
 
 

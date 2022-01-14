@@ -13,7 +13,8 @@ Group::Group(int group_id, int scale, int group_size)
 Group::~Group(){
     if(this->rank_group_players != nullptr)
     {
-        this->rank_group_players->clearTree();
+        delete this->rank_group_players;
+        //this->rank_group_players->clearTree();
         this->rank_group_players = nullptr;
     }    
 }

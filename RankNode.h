@@ -174,12 +174,12 @@ RankNode<T>::~RankNode()
 	}
 	if(this->players_score_arr != nullptr)
 	{
-		//delete[] this->players_score_arr;
+		delete[] this->players_score_arr;
 		this->players_score_arr = nullptr;
 	}
 	if(this->players_score_arr_sub_tree != nullptr)
 	{
-		//delete[] this->players_score_arr_sub_tree;
+		delete[] this->players_score_arr_sub_tree;
 		this->players_score_arr_sub_tree = nullptr;
 	}
 	this->left = nullptr;
@@ -263,12 +263,12 @@ void RankNode<T>::clearAll()	{
 	}
 	if(this->players_score_arr != nullptr)
 	{
-		//delete[] this->players_score_arr;
+		delete[] this->players_score_arr;
 		this->players_score_arr = nullptr;
 	}
 	if(this->players_score_arr_sub_tree != nullptr)
 	{
-		//delete[] this->players_score_arr_sub_tree;
+		delete[] this->players_score_arr_sub_tree;
 		this->players_score_arr_sub_tree = nullptr;
 	}
 	if(this->right != nullptr){
@@ -392,7 +392,11 @@ void RankNode<T>::updateNodeFeatures() {
 	if(temp == nullptr) return;
 	if(this->isLeaf())
 	{
-		this->setScoreArrSubTree(this->copyScoreArr());
+		for(int i=1; i<=this->getScale(); i++)
+    	{
+        	this->getScoreArrSubTree()[i] = this->getScoreArr()[i];
+    	}
+		//this->setScoreArrSubTree(this->copyScoreArr());
 		this->setPlayersAmountSubTree(this->getPlayersAmount());
 	}
 	else if(this->hasRightSon() && !(this->hasLeftSon()))
@@ -478,7 +482,11 @@ void RankNode<T>::updateLLFeatures() {
 	this->right->setPlayersAmountSubTree(Ar_players_amount_sub+Br_players_amount_sub+(this->right->getPlayersAmount()));
 	if(this->right->isLeaf())
 	{
-		this->right->setScoreArrSubTree(this->right->copyScoreArr());
+		for(int i=1;i<=this->getScale();i++)
+		{
+			B_score_arr_sub[i] = B_score_arr[i];
+		}
+		//this->right->setScoreArrSubTree(this->right->copyScoreArr());
 		this->right->setLevelSumSubTree(this->right->getLevelSum());
 	}
 	else if(this->right->hasRightSon() && !(this->right->hasLeftSon()))
@@ -556,7 +564,11 @@ void RankNode<T>::updateRRFeatures() {
 	this->left->setPlayersAmountSubTree(Al_players_amount_sub+Br_players_amount_sub+(this->left->getPlayersAmount()));
 	if(this->left->isLeaf())
 	{
-		this->left->setScoreArrSubTree(this->left->copyScoreArr());
+		for(int i=1;i<=this->getScale();i++)
+		{
+			B_score_arr_sub[i] = B_score_arr[i];
+		}
+		//this->left->setScoreArrSubTree(this->left->copyScoreArr());
 		this->left->setLevelSumSubTree(this->left->getLevelSum());
 	}
 	else if(this->left->hasRightSon() && !(this->left->hasLeftSon()))

@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "C:/TDM-GCC-64/bin/g++.exe")
+set(CMAKE_CXX_COMPILER "C:/TDM-GCC-64/bin/x86_64-w64-mingw32-g++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "9.2.0")
@@ -21,9 +21,9 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 set(CMAKE_AR "C:/TDM-GCC-64/bin/ar.exe")
-set(CMAKE_CXX_COMPILER_AR "C:/TDM-GCC-64/bin/gcc-ar.exe")
+set(CMAKE_CXX_COMPILER_AR "C:/TDM-GCC-64/bin/x86_64-w64-mingw32-gcc-ar.exe")
 set(CMAKE_RANLIB "C:/TDM-GCC-64/bin/ranlib.exe")
-set(CMAKE_CXX_COMPILER_RANLIB "C:/TDM-GCC-64/bin/gcc-ranlib.exe")
+set(CMAKE_CXX_COMPILER_RANLIB "C:/TDM-GCC-64/bin/x86_64-w64-mingw32-gcc-ranlib.exe")
 set(CMAKE_LINKER "C:/TDM-GCC-64/bin/ld.exe")
 set(CMAKE_MT "")
 set(CMAKE_COMPILER_IS_GNUCXX 1)

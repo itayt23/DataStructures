@@ -15,11 +15,13 @@ ChainHashTable::ChainHashTable(int table_size_t)
 
 ChainHashTable::~ChainHashTable(){
     for(int i=0; i < this->table_size ; i++){
-        delete table[i];
+        table[i]->clearChain();
+        //delete table[i];
         table[i] = nullptr;     // setting the deleted to nullptr is standard practive
     }
     //delete[] *table;
-    //delete[] table;
+    if(this->table != nullptr)
+        delete[] table;
     this->table=nullptr;        // setting the deleted to nullptr is standard practive
 }
 
@@ -74,7 +76,11 @@ void ChainHashTable::upsize(){
             iterator=iterator->getNext();
         }
     }
-    delete old_table;
+    for(int i=0; i < old_size ; i++){
+        delete old_table[i];
+        old_table[i] = nullptr;   
+    }
+    delete[] old_table;
     return;
 } 
 

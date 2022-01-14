@@ -48,10 +48,9 @@ UnionFind<T>::~UnionFind()
     {
         delete uf_group_arr[i];
     }
-    //delete[] *uf_group_arr;
-    //if(this->uf_group_arr != nullptr)
-        //delete uf_group_arr;
-    uf_group_arr = nullptr;
+    if(this->uf_group_arr != nullptr)
+        delete[] uf_group_arr;
+    this->uf_group_arr = nullptr;
 }
 
 template<class T>
@@ -66,6 +65,7 @@ void UnionFind<T>::unionGroups(const int group_id1, const int group_id2)
     {
         root_group1->setParent(root_group2);
         root_group2->setUfSize(root_group2->getUfSize() + root_group1->getUfSize());
+        //delete group1->getData();
 
     }
     else if(root_group1->getUfSize() == root_group2->getUfSize())
@@ -74,18 +74,20 @@ void UnionFind<T>::unionGroups(const int group_id1, const int group_id2)
         {
             root_group2->setParent(root_group1);
             root_group1->setUfSize(root_group2->getUfSize() + root_group1->getUfSize());
-
+            //delete group2->getData();
         }
         else
         {
             root_group1->setParent(root_group2);
             root_group2->setUfSize(root_group2->getUfSize() + root_group1->getUfSize());
+            //delete group1->getData();
         }
     }
     else
     {
         root_group2->setParent(root_group1);
         root_group1->setUfSize(root_group2->getUfSize() + root_group1->getUfSize());
+        //delete group2->getData();
     }
 }
 template<class T>
