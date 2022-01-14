@@ -10,7 +10,6 @@ static int findTreeHeight(int n);
 static RankNode<int> *buildCompleteTree(int h, RankNode<int> *parent, int scale);
 static RankNode<int> *removeExtraLeafs(RankNode<int> *node, int *n);
 static void arrayToTree(RankNode<int> *node, RankNode<int> **array, int *array_size, int *index);
-static RankNode<int> **fixMergedArray(RankNode<int> **merge_array, int merged_array_size, int merged_array_size_final);
 static void updateLevelZero(RankNode<int> *level_zero_final, RankNode<int> *group_tree1_level_zero, RankNode<int> *group_tree2_level_zero);
 static double getAverageHighestLevel(RankNode<int> *iter_node, int m);
 
@@ -53,7 +52,7 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2)
     int merged_array_size_final = 0;
     if (this->groups_uf->find(GroupID1)->getGroupID() == this->groups_uf->find(GroupID2)->getGroupID())
         return SUCCESS;
-    if (group_tree1->getRootNode() == nullptr && group_tree1->getLevelZero() == nullptr && group_tree2->getRootNode() == nullptr && group_tree2->getLevelZero() == nullptr)
+    if(group_tree1->getRootNode() == nullptr && group_tree1->getLevelZero() == nullptr && group_tree2->getRootNode() == nullptr && group_tree2->getLevelZero() == nullptr)
     {
         this->groups_uf->unionGroups(GroupID1, GroupID2);
         return SUCCESS;
@@ -100,9 +99,6 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2)
                 merged_array_size_final++;
             }
         }
-        // reducting the unused chunk of @merged_array to @merged_array_final
-        RankNode<int> **merged_array_final = fixMergedArray(merged_array, merged_array_size, merged_array_size_final);
-
         int new_tree_height = findTreeHeight(merged_array_size_final); // merged_array_size == number of nodes in the new tree;
         RankNode<int> *final_tree_root = buildCompleteTree(new_tree_height, nullptr, this->score_scale);
         int full_tree_size = pow(2, new_tree_height + 1) - 1;
@@ -126,14 +122,14 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2)
         this->groups_uf->unionGroups(GroupID1, GroupID2);
         Group *root_group = this->groups_uf->find(GroupID1);
         root_group->setGroupPlayersTree(final_tree);
-        for (int i = 0; i < merged_array_size_final; i++)
+        for (int i = 0; i < merged_array_size; i++)
         {
-            delete merged_array_final[i];
+            delete merged_array[i];
         }
         delete[] group1_array;
         delete[] group2_array;
         delete[] merged_array;
-        delete[] merged_array_final;
+        //delete[] merged_array_final;
     }
     catch (AllocationError &e)
     {
@@ -584,16 +580,6 @@ static void arrayToTree(RankNode<int> *node, RankNode<int> **merged_array, int *
     arrayToTree(node->getRightSon(), merged_array, array_size, index); // recursive call to the rught subtree
     node->updateNodeFeatures();
     node->updateLevelSumSubTree();
-}
-
-static RankNode<int> **fixMergedArray(RankNode<int> **merge_array, int merged_array_size, int merged_array_size_final)
-{
-    RankNode<int> **merged_array_final = new RankNode<int> *[merged_array_size_final];
-    for (int i = 0; i < merged_array_size_final; i++)
-    {
-        merged_array_final[i] = merge_array[i];
-    }
-    return merged_array_final;
 }
 
 static void updateLevelZero(RankNode<int> *level_zero_final, RankNode<int> *group_tree1_level_zero, RankNode<int> *group_tree2_level_zero)
