@@ -77,31 +77,36 @@ void ChainHashTable::upsize(){
     PlayerNode** new_table = new PlayerNode*[new_size];
     PlayerNode** old_table = this->table;
     PlayerNode* iterator = nullptr;
-    //int new_HT_index;
     this->capacity = 0; // we insert the old values and that will grow the capacity to it's former size. 
-    //focues on the new table content
-    this->table = new_table;
+    //focues on the new table content 
     this->table_size = new_size;
     // resetting up the new array
     for(int i=0; i < new_size; i++){
-        this->table[i] = nullptr;
+        new_table[i] = nullptr;
     }
+    this->table = new_table;
     // settling the old cells
-    for(int i=0; i < old_size; i++){
-        iterator=old_table[i];      // takes the head of the chain
-        while(iterator != nullptr){
-            //new_HT_index = calculateHash(iterator->getPlayer()->getPlayerID());
+    for(int i=0; i < old_size; i++){    // iterate over every cell
+        iterator=old_table[i];      
+        while(iterator != nullptr){     // iterate over every node in the list.
             this->insertHT(iterator->getPlayer());      // assure that the new table is already updated for hash index calculations 
             iterator=iterator->getNext();
         }
     }
-    for(int i=0; i < old_size ; i++){
-        delete old_table[i];
-        old_table[i] = nullptr;   
+    //  delete the old table
+    PlayerNode* iterator_next_backup = nullptr; // default;
+    for(int i=0; i < old_size ; i++){   // iterate over every cell in the array
+        iterator = old_table[i];
+        while(iterator != nullptr){ // iterate over every node in the list
+            iterator_next_backup = iterator->getNext();
+            delete iterator;
+            iterator = iterator_next_backup;
+        }
+        old_table[i]=nullptr;
     }
     delete[] old_table;
     return;
-} 
+}
 
 void ChainHashTable::downsize(){
     if(this->table_size == DEFAULT_SIZE){   // smallest array will be 10
@@ -127,14 +132,21 @@ void ChainHashTable::downsize(){
             iterator=iterator->getNext();
         }
     }
-    for(int i=0; i < old_size ; i++){
-        delete old_table[i];
-        old_table[i] = nullptr;   
+
+    //  delete the old table
+    PlayerNode* iterator_next_backup = nullptr; // default;
+    for(int i=0; i < old_size ; i++){   // iterate over every cell in the array
+        iterator = old_table[i];
+        while(iterator != nullptr){ // iterate over every node in the list
+            iterator_next_backup = iterator->getNext();
+            delete iterator;
+            iterator = iterator_next_backup;
+        }
+        old_table[i]=nullptr;
     }
     delete[] old_table;
     return;
 }
-
 
 /* Auxliary public functions ---------------------------------------------------------------------------------------- */
 

@@ -13,9 +13,9 @@ PlayerNode::PlayerNode(Player* player_t){
 }
 
 PlayerNode::~PlayerNode(){
-    delete player;
+    delete this->player;
     this->player = nullptr;
-    //this->next = nullptr;
+    this->next = nullptr;
     //this->clearChain();
 }
 

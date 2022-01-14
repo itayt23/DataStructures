@@ -111,16 +111,16 @@ StatusType PlayersManager::MergeGroups(int GroupID1, int GroupID2)
         int *zero = new int(0);
         RankNode<int> *level_zero_final = new RankNode<int>(zero, nullptr, 0, this->score_scale);
         updateLevelZero(level_zero_final, group_tree1_level_zero, group_tree2_level_zero);
-        RankTree<int> *final_tree = new RankTree<int>(final_tree_root, level_zero_final, this->score_scale, merged_array_size_final);
         if (group_tree1_level_zero == nullptr && group_tree2_level_zero == nullptr)
         {
-            final_tree->getLevelZero()->setPlayersAmount(0);
-            final_tree->getLevelZero()->setPlayersAmountSubTree(0);
+            level_zero_final = nullptr;
         }
+        RankTree<int> *final_tree = new RankTree<int>(final_tree_root, level_zero_final, this->score_scale, merged_array_size_final);
         group_tree1->clearTree();
         group_tree2->clearTree();
         this->groups_uf->unionGroups(GroupID1, GroupID2);
         Group *root_group = this->groups_uf->find(GroupID1);
+        delete root_group->getGroupPlayersTree();
         root_group->setGroupPlayersTree(final_tree);
         for (int i = 0; i < merged_array_size; i++)
         {
@@ -583,9 +583,11 @@ static void arrayToTree(RankNode<int> *node, RankNode<int> **merged_array, int *
 
 static void updateLevelZero(RankNode<int> *level_zero_final, RankNode<int> *group_tree1_level_zero, RankNode<int> *group_tree2_level_zero)
 {
-    if (group_tree1_level_zero == nullptr && group_tree2_level_zero == nullptr)
-        level_zero_final = nullptr;
-    else if (group_tree1_level_zero != nullptr && group_tree2_level_zero == nullptr)
+    if(group_tree1_level_zero == nullptr && group_tree2_level_zero == nullptr)
+    {
+        delete level_zero_final;
+    }
+    if (group_tree1_level_zero != nullptr && group_tree2_level_zero == nullptr)
     {
         for (int i = 1; i <= group_tree1_level_zero->getScale(); i++)
         {
